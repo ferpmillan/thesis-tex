@@ -1,0 +1,56 @@
+This is BibTeX, Version 0.99d (TeX Live 2023)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: apacite.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: ../../biblo.bib
+apacite.bst [2013/07/21 v6.03 APA bibliography style]
+You've used 33 entries,
+            6951 wiz_defined-function locations,
+            1527 strings with 17360 characters,
+and the built_in function-call counts, 59917 in all, are:
+= -- 7470
+> -- 446
+< -- 2739
++ -- 2755
+- -- 66
+* -- 3910
+:= -- 10731
+add.period$ -- 140
+call.type$ -- 33
+change.case$ -- 564
+chr.to.int$ -- 0
+cite$ -- 66
+duplicate$ -- 1566
+empty$ -- 2542
+format.name$ -- 671
+if$ -- 11618
+int.to.chr$ -- 0
+int.to.str$ -- 99
+missing$ -- 0
+newline$ -- 886
+num.names$ -- 266
+pop$ -- 954
+preamble$ -- 1
+purify$ -- 132
+quote$ -- 0
+skip$ -- 4030
+stack$ -- 0
+substring$ -- 3077
+swap$ -- 964
+text.length$ -- 95
+text.prefix$ -- 0
+top$ -- 1
+type$ -- 2832
+warning$ -- 0
+while$ -- 233
+width$ -- 0
+write$ -- 1030

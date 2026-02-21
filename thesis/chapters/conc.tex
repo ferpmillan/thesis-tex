@@ -1,0 +1,25 @@
+\chapter*{Conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
+
+This thesis set out to provide a comprehensive, step-by-step framework for modeling financial returns, beginning with univariate modeling techniques and culminating in a multivariate risk-modeling approach based on copulas. Each chapter built on the previous one, combining theoretical underpinnings with practical implementation for key models in financial econometrics.
+
+\hyperref[chap:1]{Chapter 1} introduced the empirical features of asset returns and framed the modeling challenge. It also described the dataset used throughout: daily returns for the S\&P~500 and a 10-year U.S.\ Treasury note index (Bloomberg ticker: SPBDU1BT Index), with a training sample from January~2015 to December~2024 and a forecasting (test) sample from January~2025 to April~2025.
+
+\hyperref[chap:2]{Chapter 2} addressed the first challenge—modeling dynamic volatility—via GARCH(1,1) and GJR–GARCH(1,1). \hyperref[chap:3]{Chapter 3} turned to the parametric modeling of shocks, considering an asymmetric Student’s~t distribution and a peak-over-threshold approach from extreme value theory (EVT).
+
+\hyperref[chap:4]{Chapter 4} evaluated model validity and usefulness for risk management. The chosen GARCH specifications captured the conditional volatility structure, and density-forecast diagnostics suggested statistical adequacy in samples. For risk forecasts, however, models based on the asymmetric t distribution failed to achieve acceptable Value-at-Risk (VaR) coverage and independence of violations, while EVT-based models achieved more acceptable coverage but did not pass independence tests. These results point to hybrid specifications that combine the conservative tail treatment of EVT with shock processes that allow time variation in skewness and kurtosis, thereby adapting more quickly to volatility surges.
+
+\hyperref[chap:5]{Chapter 5} proposed a multivariate framework based on a symmetric t-copula to capture threshold correlations while, for tractability, abstracting from time variation in dependence. In the test set, this static copula struggled with sudden increases in volatility and, consequently, with independence of VaR violations. Nonetheless, PIT-based diagnostics—histograms and Kolmogorov–Smirnov tests on the normal transform—indicated that the copula-based portfolio density forecasts were statistically well calibrated, supporting their validity as density forecasts. To address the remaining limitations, asymmetric and dynamic copulas—potentially combined with time-varying higher moments in the marginal shock processes—are promising extensions.
+
+Throughout the thesis, emphasis was placed on balancing theoretical
+clarity with empirical rigor. Modeling choices were always accompanied
+by justification, comparisons with alternatives, and diagnostic tools
+to evaluate performance. The methodologies were implemented and illustrated using real financial data, with code provided to promote full
+reproducibility.
+\newpage
+
+Ultimately, the structured modeling path presented here not only equips
+readers with robust and practical tools to approach financial return
+modeling, but also underscores the ongoing relevance and vitality of
+questions first posed decades ago—questions that continue to drive
+innovation and deepen our understanding of financial markets.

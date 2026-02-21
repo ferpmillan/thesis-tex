@@ -1,0 +1,528 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Berkowitz%
+}{%
+Berkowitz%
+}{%
+{\protect \APACyear {2001}}%
+}]{%
+berkowitz2001testing}
+\APACinsertmetastar {%
+berkowitz2001testing}%
+\begin{APACrefauthors}%
+Berkowitz, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2001}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Testing Density Forecasts, with Applications to Risk
+  Management} {Testing density forecasts, with applications to risk
+  management}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Business \& Economic
+  Statistics}{19}{4}{465--474}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1198/07350010152596718}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1198/07350010152596718} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Bollerslev%
+}{%
+Bollerslev%
+}{%
+{\protect \APACyear {1986}}%
+}]{%
+Bollerslev1986}
+\APACinsertmetastar {%
+Bollerslev1986}%
+\begin{APACrefauthors}%
+Bollerslev, T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1986}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Generalized autoregressive conditional
+  heteroskedasticity} {Generalized autoregressive conditional
+  heteroskedasticity}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Finance}{31}{3}{307-327}.
+\newblock
+\begin{APACrefDOI} \doi{https://doi.org/10.1016/0304-4076(86)90063-1}
+  \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Bollerslev%
+}{%
+Bollerslev%
+}{%
+{\protect \APACyear {2023}}%
+}]{%
+Bollerslev2023}
+\APACinsertmetastar {%
+Bollerslev2023}%
+\begin{APACrefauthors}%
+Bollerslev, T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2023}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The story of {GARCH}: A personal odyssey} {The story of
+  {GARCH}: A personal odyssey}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Econometrics}{234}{}{96-100}.
+\newblock
+\begin{APACrefDOI} \doi{https://doi.org/10.1016/j.jeconom.2023.01.015}
+  \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Campbell%
+, Lo%
+\BCBL {}\ \BBA {} MacKinlay%
+}{%
+Campbell%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1997}}%
+}]{%
+Campbell1997}
+\APACinsertmetastar {%
+Campbell1997}%
+\begin{APACrefauthors}%
+Campbell, J\BPBI Y.%
+, Lo, A\BPBI W.%
+\BCBL {}\ \BBA {} MacKinlay, A\BPBI C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{1997}.
+\newblock
+\APACrefbtitle {The Econometrics of Financial Markets} {The econometrics of
+  financial markets}.
+\newblock
+\APACaddressPublisher{United States}{Princeton University Press}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Christoffersen%
+}{%
+Christoffersen%
+}{%
+{\protect \APACyear {1998}}%
+}]{%
+christoffersen1998evaluating}
+\APACinsertmetastar {%
+christoffersen1998evaluating}%
+\begin{APACrefauthors}%
+Christoffersen, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1998}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Evaluating Interval Forecasts} {Evaluating interval
+  forecasts}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{International Economic Review}{39}{4}{841--862}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.2307/2527341} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.2307/2527341} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Christoffersen%
+}{%
+Christoffersen%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+Christoffersen2012}
+\APACinsertmetastar {%
+Christoffersen2012}%
+\begin{APACrefauthors}%
+Christoffersen, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2012}.
+\newblock
+\APACrefbtitle {Elements of Financial Risk Management} {Elements of financial
+  risk management}.
+\newblock
+\APACaddressPublisher{United States}{Academic Press}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Christoffersen%
+\ \BBA {} Langlois%
+}{%
+Christoffersen%
+\ \BBA {} Langlois%
+}{%
+{\protect \APACyear {2011}}%
+}]{%
+christoffersen2011joint}
+\APACinsertmetastar {%
+christoffersen2011joint}%
+\begin{APACrefauthors}%
+Christoffersen, P.%
+\BCBT {}\ \BBA {} Langlois, H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+\APACrefbtitle {The Joint Dynamics of Equity Market Factors} {The joint
+  dynamics of equity market factors}\ \APACbVolEdTR {}{Working Paper\ \BNUM\
+  CREATES 2011-45}.
+\newblock
+\APACaddressInstitution{}{CREATES, Aarhus University; University of Toronto}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1017/S0022109013000598}
+  \end{APACrefURL}
+\newblock
+\APACrefnote{Later published in *JFQA* (2013), vol. 48, no. 5, pp.1371–1404}
+\newblock
+\begin{APACrefDOI} \doi{10.1017/S0022109013000598} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Cont%
+}{%
+Cont%
+}{%
+{\protect \APACyear {2001}}%
+}]{%
+Cont2001}
+\APACinsertmetastar {%
+Cont2001}%
+\begin{APACrefauthors}%
+Cont, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2001}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Empirical properties of asset returns: stylized facts
+  and statistical issues} {Empirical properties of asset returns: stylized
+  facts and statistical issues}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Quantitative Finance}{1}{}{223-236}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1080/713665670} \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Diebold%
+, Gunther%
+\BCBL {}\ \BBA {} Tay%
+}{%
+Diebold%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1998}}%
+}]{%
+diebold1998evaluating}
+\APACinsertmetastar {%
+diebold1998evaluating}%
+\begin{APACrefauthors}%
+Diebold, F\BPBI X.%
+, Gunther, T\BPBI A.%
+\BCBL {}\ \BBA {} Tay, A\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1998}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Evaluating Density Forecasts with Applications to
+  Financial Risk Management} {Evaluating density forecasts with applications to
+  financial risk management}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{International Economic Review}{39}{4}{863--883}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.2307/2527342} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.2307/2527342} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Diebold%
+\ \BBA {} Mariano%
+}{%
+Diebold%
+\ \BBA {} Mariano%
+}{%
+{\protect \APACyear {1995}}%
+}]{%
+diebold1995comparing}
+\APACinsertmetastar {%
+diebold1995comparing}%
+\begin{APACrefauthors}%
+Diebold, F\BPBI X.%
+\BCBT {}\ \BBA {} Mariano, R\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1995}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Comparing Predictive Accuracy} {Comparing predictive
+  accuracy}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Business \& Economic
+  Statistics}{13}{3}{253--263}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1080/07350015.1995.10524501}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1080/07350015.1995.10524501} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Fernández%
+\ \BBA {} Steel%
+}{%
+Fernández%
+\ \BBA {} Steel%
+}{%
+{\protect \APACyear {1998}}%
+}]{%
+Fernandez1998}
+\APACinsertmetastar {%
+Fernandez1998}%
+\begin{APACrefauthors}%
+Fernández, C.%
+\BCBT {}\ \BBA {} Steel, M\BPBI F\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1998}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {On Bayesian Modeling of Fat Tails and Skewness} {On
+  bayesian modeling of fat tails and skewness}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of the American Statistical
+  Association}{93}{441}{359-371}.
+\newblock
+\begin{APACrefURL} \url{https://www.jstor.org/stable/2669632} \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Glosten%
+, Jagannathan%
+\BCBL {}\ \BBA {} Runkle%
+}{%
+Glosten%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1993}}%
+}]{%
+Glosten1993}
+\APACinsertmetastar {%
+Glosten1993}%
+\begin{APACrefauthors}%
+Glosten, L\BPBI R.%
+, Jagannathan, R.%
+\BCBL {}\ \BBA {} Runkle, D\BPBI E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1993}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {On the Relation between the Expected Value and the
+  Volatility of the Nominal Excess Return on Stocks} {On the relation between
+  the expected value and the volatility of the nominal excess return on
+  stocks}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Econometrics}{48}{5}{1779-1801}.
+\newblock
+\begin{APACrefDOI} \doi{https://doi.org/10.1111/j.1540-6261.1993.tb05128.x}
+  \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Jondeau%
+\ \BBA {} Rockinger%
+}{%
+Jondeau%
+\ \BBA {} Rockinger%
+}{%
+{\protect \APACyear {2006}}%
+}]{%
+jondeau2006copulagarch}
+\APACinsertmetastar {%
+jondeau2006copulagarch}%
+\begin{APACrefauthors}%
+Jondeau, E.%
+\BCBT {}\ \BBA {} Rockinger, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2006}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The Copula‐GARCH Model of Conditional Dependencies: An
+  International Stock Market Application} {The copula‐garch model of
+  conditional dependencies: An international stock market application}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of International Money and
+  Finance}{25}{5}{827-853}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1016/j.jimonfin.2006.04.007}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.jimonfin.2006.04.007} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+McNeil%
+\ \BBA {} Frey%
+}{%
+McNeil%
+\ \BBA {} Frey%
+}{%
+{\protect \APACyear {2000}}%
+}]{%
+mcneil2000estimation}
+\APACinsertmetastar {%
+mcneil2000estimation}%
+\begin{APACrefauthors}%
+McNeil, A\BPBI J.%
+\BCBT {}\ \BBA {} Frey, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2000}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Estimation of tail-related risk measures for
+  heteroscedastic financial time series: an extreme value approach} {Estimation
+  of tail-related risk measures for heteroscedastic financial time series: an
+  extreme value approach}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Empirical Finance}{7}{3-4}{271--300}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1016/S0927-5398(00)00012-8}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1016/S0927-5398(00)00012-8} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Okimoto%
+}{%
+Okimoto%
+}{%
+{\protect \APACyear {2008}}%
+}]{%
+okimoto2008asymmetric}
+\APACinsertmetastar {%
+okimoto2008asymmetric}%
+\begin{APACrefauthors}%
+Okimoto, T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {New Evidence of Asymmetric Dependence Structures in
+  International Equity Markets} {New evidence of asymmetric dependence
+  structures in international equity markets}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Financial and Quantitative
+  Analysis}{43}{3}{787--815}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1017/S0022109000004294}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1017/S0022109000004294} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Patton%
+}{%
+Patton%
+}{%
+{\protect \APACyear {2006}}%
+}]{%
+patton2006modelling}
+\APACinsertmetastar {%
+patton2006modelling}%
+\begin{APACrefauthors}%
+Patton, A\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2006}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Modelling asymmetric exchange rate dependence}
+  {Modelling asymmetric exchange rate dependence}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{International Economic Review}{47}{2}{527--556}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1111/j.1468-2354.2006.00387.x}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1111/j.1468-2354.2006.00387.x} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Patton%
+\ \BBA {} Oh%
+}{%
+Patton%
+\ \BBA {} Oh%
+}{%
+{\protect \APACyear {2011}}%
+}]{%
+patton2011factor}
+\APACinsertmetastar {%
+patton2011factor}%
+\begin{APACrefauthors}%
+Patton, A\BPBI J.%
+\BCBT {}\ \BBA {} Oh, D\BHBI H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+\APACrefbtitle {Modelling dependence in high dimensions with factor copulas}
+  {Modelling dependence in high dimensions with factor copulas}\ \APACbVolEdTR
+  {}{Working Paper}.
+\newblock
+\APACaddressInstitution{}{Duke University}.
+\newblock
+\begin{APACrefURL}
+  \url{https://public.econ.duke.edu/~ap172/Oh_Patton_MV_factor_copula_apr12.pdf}
+  \end{APACrefURL}
+\newblock
+\APACrefnote{Precursor to *JBES* 2017 paper on factor copulas}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Tsay%
+}{%
+Tsay%
+}{%
+{\protect \APACyear {2010}}%
+}]{%
+Tsay2010}
+\APACinsertmetastar {%
+Tsay2010}%
+\begin{APACrefauthors}%
+Tsay, R\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2010}.
+\newblock
+\APACrefbtitle {Analysis of Financial Time Series} {Analysis of financial time
+  series}.
+\newblock
+\APACaddressPublisher{United States}{Wiley}.
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}

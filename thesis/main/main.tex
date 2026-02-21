@@ -1,0 +1,260 @@
+\documentclass[11pt, oneside]{book}
+\usepackage[paperwidth=17cm, paperheight=22.5cm, bottom=2.5cm, right=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amssymb,amsmath,amsthm,amsfonts,mathtools}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+\usepackage{chngcntr} 
+\counterwithin{figure}{chapter}
+\usepackage{tcolorbox}
+\usepackage{microtype}
+\usepackage{listings}
+\lstdefinestyle{Rstyle}{
+  language=R,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{black},
+  commentstyle=\color{miAzul},
+  stringstyle=\color{miVerde},
+  backgroundcolor=\color{gray!5},
+  frame=lines,
+  rulecolor=\color{black},
+  breaklines=true,
+  captionpos=b,
+  showstringspaces=false
+}
+
+% Para eliminar guiones y justificar texto
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+\linespread{1.25} % Asemeja el interlineado 1.5 de Word
+
+\let\oldfootnote\footnote % Deja espacio entre el número del pie de página y el inicio del texto
+\renewcommand\footnote[1]{%
+\oldfootnote{\hspace{0.05mm}#1}}
+
+\renewcommand{\thefootnote} {\textcolor{miVerde}{\arabic{footnote}}} % Súperindice a color negro
+
+\setlength{\footnotesep}{0.75\baselineskip}
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0pt}
+
+% ---- LINKS ----
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=miRojo, citecolor=miAzul, linkcolor=miVerde}
+
+% ---- IMÁGENES ----
+\usepackage{graphicx}
+\graphicspath{{../../plots/}{../../imgs/}{plots/}{imgs/}}
+\newcommand{\thesislogopath}{../../logo-ITAM.png}
+\IfFileExists{../../logo-ITAM.png}{}{\renewcommand{\thesislogopath}{logo-ITAM.png}}
+\newcommand{\thesisbib}{../../biblo}
+\IfFileExists{../../biblo.bib}{}{\renewcommand{\thesisbib}{biblo}}
+\newcommand{\rlogopath}{../../plots/Rlogo.png}
+\IfFileExists{../../plots/Rlogo.png}{}{\renewcommand{\rlogopath}{plots/Rlogo.png}}
+
+% ---- FORMATO DE TÍTULOS ----
+\usepackage{titlesec}
+\titlespacing{\section}{0pt}{1em plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing{\subsection}{0pt}{1em plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing{\subsubsection}{0pt}{1em plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+% ---- FORMATO DE LISTAS ----
+\usepackage{enumitem}
+\setlist[itemize]{topsep=-0.5em} % es media m para compensar
+\setlist[enumerate]{topsep=-0.5em}
+
+
+
+% ---- COLORES ----
+\usepackage{xcolor}
+\definecolor{miAzul}{RGB}{13, 33, 161}
+\definecolor{miRojo}{RGB}{186, 24, 27}
+\definecolor{miVerde}{RGB}{65, 123, 90}
+\definecolor{LightGray}{gray}{0.95}
+\definecolor{codegray}{gray}{0.9}
+
+% ---- BIBLIOGRAFÍA ----
+\usepackage{apacite}
+\bibliographystyle{apacite}
+\usepackage{etoolbox}
+\apptocmd{\thebibliography}{\setlength{\itemsep}{6pt}}{}{}
+
+% ---- FORMATO DE LAS PÁGINAS ----
+%\usepackage[a4paper, width=165mm, top=20mm, bottom = 20mm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+%\fancypagestyle{firststyle}{
+   %\fancyhf{}
+   %\fancyfoot[R]{\footnotesize \thepage}
+   %\renewcommand{\headrulewidth}{0pt}
+%}
+% Para el resto del documento.
+\fancyhf{}
+\lhead{\footnotesize V0.2}
+\chead{\footnotesize \textsc{}}
+\rhead{\footnotesize \thepage}
+%\lfoot{\footnotesize F. Pérez Millán}
+%\rfoot{\footnotesize \thepage}
+
+\renewcommand{\headrulewidth}{0.4pt}
+%\renewcommand{\footrulewidth}{0.4pt}
+\setlength{\headheight}{15pt}
+
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0cm}
+
+
+% ---- CAJAS DE COLORES ----
+\usepackage{tcolorbox}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{caption}
+\captionsetup{justification=centerlast, singlelinecheck=true}
+
+\title{
+    Thesis \\
+    \large \textbf{Draft}
+}
+\author{
+Fernando Pérez Millán, 189380}
+\date{-}
+
+\newcommand\TEI{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily TEI}}}{=}}}
+\newcommand\IND{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily ind}}}{=}}}
+\DeclareMathOperator{\var}{var}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\vas}{v.a.}
+\DeclareMathOperator{\ee}{ee}
+\DeclareMathOperator{\I}{I}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\R}{\mathbb{R}}
+
+\numberwithin{equation}{chapter}
+\numberwithin{table}{chapter}
+
+\newcommand{\Rlogo}{\protect\includegraphics[height=1.8ex,keepaspectratio]{\rlogopath}}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	PORTADA
+%----------------------------------------------------------------------------------------
+
+\title{thesis} % Con este nombre se guardará el proyecto en writeLaTex
+
+\begin{titlepage}
+\begin{center}
+
+\textsc{\Large Instituto Tecnológico Autónomo de México}\\[2em]
+
+%Figura
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.15]{\thesislogopath}
+\end{center}
+\end{figure}
+
+% Pueden modificar el tamaño del logo cambiando la escala
+
+\textbf{\LARGE Modelado de rendimientos financieros: volatilidad condicional, colas pesadas y dependencia multivariada}\\[2em]
+
+\textsc{\large Tesis}\\[1em]
+
+\textsc{\large que para obtener el título de}\\[1em]
+
+\textsc{\LARGE Licenciado en Actuaría y Dirección Financiera}\\[1em]
+
+\textsc{\large Presenta}\\[1em]
+
+\textsc{\LARGE Fernando Pérez Millán}\\[1em]
+
+\textsc{\large Asesor}\\[1em]
+
+\textsc{\LARGE Dr. Carlos Vladimir Rodríguez Caballero}\\[2em]
+
+% Asegúrense de escribir el nombre completo de su asesor
+
+\end{center}
+
+\vspace*{\fill}
+\textsc{Ciudad de México \hspace*{\fill} 2025}
+
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%	DECLARACIÓN
+%----------------------------------------------------------------------------------------
+
+\thispagestyle{empty}
+
+\vspace*{\fill}
+\begingroup
+
+\noindent
+«Con fundamento en los artículos 21 y 27 de la Ley Federal del Derecho de Autor y como titular de los derechos moral y patrimonial de la obra titulada ``\textbf{Confianza institucional, inclusión social, intensidad religiosa y percepción tecnológica como factores de innovación para el crecimiento económico}'', otorgo de manera gratuita y permanente al Instituto Tecnológico Autónomo de México y a la Biblioteca Raúl Bailléres Jr., la autorización para que fijen la obra en cualquier medio, incluido el electrónico, y la divulguen entre sus usuarios, profesores, estudiantes o terceras personas, sin que pueda percibir por tal divulgación una contraprestación.»
+
+% Asegúrense de cambiar el título de su tesis en el párrafo anterior
+
+\centering 
+
+\vspace{5em}
+
+\rule[1em]{20em}{0.5pt} % Línea para la fecha
+
+\textsc{Fecha}
+ 
+\vspace{8em}
+
+\rule[1em]{20em}{0.5pt} % Línea para la firma
+
+\textsc{Fernando Pérez Millán}
+
+\endgroup
+\vspace*{\fill}
+
+%----------------------------------------------------------------------------------------
+%	DEDICATORIA
+%----------------------------------------------------------------------------------------
+
+\pagestyle{plain}
+\frontmatter
+
+\chapter*{}
+\begin{flushright}
+\textit{A Fátima.}
+\end{flushright}
+
+
+\pagestyle{fancy}
+%\maketitle
+%\thispagestyle{firststyle}
+%\vfill
+\newpage
+\tableofcontents
+\newpage
+\mainmatter
+\input{../chapters/intro}
+\newpage
+\input{../chapters/cap1}
+\newpage
+\input{../chapters/cap2}
+\newpage
+\input{../chapters/cap3}
+\newpage
+\input{../chapters/cap4}
+\newpage
+\input{../chapters/cap5}
+\newpage
+\input{../chapters/conc}
+\cleardoublepage
+\backmatter
+\bibliography{\thesisbib}
+\end{document}

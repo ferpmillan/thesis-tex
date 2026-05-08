@@ -17,7 +17,7 @@ First, as established in the previous chapter, volatility—measured by squared 
 Additionally, volatility evolves continuously over time, does not diverge to infinity, and, as previously discussed, appears to respond asymmetrically to large price increases and decreases.
 
 The literature on volatility models is extensive. Early models were developed to capture the dynamic dependency observed in variance, and subsequent models were introduced to address the limitations of their predecessors, particularly their inability to fully capture the characteristics discussed earlier. Over time, a wide range of volatility models has emerged, each catering to different modeling needs.
-
+\newpage
 Before introducing specific volatility models, the squared return series, $R^2_{t+1}$ can be used to check for conditional heteroscedasticity. The Ljung–Box statistic \cite{McLeod1983} is commonly employed for this purpose, testing the null hypothesis that the first $m$ lags of the autocorrelation function (ACF) of the squared series are zero. Applying this test to the squared S\&P 500 returns with $m=\ln(T)\approx7$ \footnote{Setting $m = \ln(T)$
 has been found to work well in simulation studies, as noted by \citeA{Christoffersen2012}.}, the p-value is close to zero. 
 

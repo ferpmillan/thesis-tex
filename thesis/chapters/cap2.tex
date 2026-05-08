@@ -28,20 +28,72 @@ As previously mentioned, there is a volatility model for every need. Various mod
 
 The fundamental idea in volatility modeling is that the return series $R_{t+1}$ is either serially uncorrelated or exhibits only minor lower-order serial correlations, yet it remains dependent through its conditional variance. As noted by \citeA{Tsay2010}, it is the time evolution of $\sigma^2_{t+1}$ that distinguishes one volatility model from another.
 
-Recall that the return series follows \ref{eq:1.2}. In the GARCH(1,1) model, the conditional variance evolves as
+Recall that the return series follows Equation~\eqref{eq:1.2}. In the GARCH(1,1) model, the conditional variance evolves as
 \begin{equation}
     \sigma^2_{t+1} = \omega + \alpha R^2_{t} + \beta\sigma^2_{t}
     \label{eq:2.1}
 \end{equation}
-with $ \omega > 0,\ \alpha \geq 0,\ \beta \geq 0,\ \alpha + \beta < 1.$ For the GJR-GARCH(1,1) model, the conditional variance is:
+with $ \omega > 0,\ \alpha \geq 0,\ \beta \geq 0,\ \alpha + \beta < 1$. These restrictions ensure that the conditional variance is positive and that the process has a finite long-run variance. For the GJR-GARCH(1,1) model, the conditional variance is:
 \begin{equation}
     \sigma^2_{t+1} = \omega + \alpha R^2_{t} + \alpha \theta I_{t} R^2_{t} + \beta\sigma^2_{t}
     \label{eq:2.2}
 \end{equation}
 
-with $\omega > 0,\ \alpha \geq 0,\ \theta \geq 0,\ \beta \geq 0,\ \alpha(1+\frac{\theta}{2}) + \beta < 1$, where $I_t=\mathbf{1}\{R_t<0\}$. A positive $\theta$ captures the leverage effect.
+where $I_t=\mathbf{1}\{R_t<0\}$. Here, $\omega>0$, $\alpha\geq0$, $\theta\geq0$, and $\beta\geq0$ guarantee positivity of the conditional variance, and $\alpha\left(1+\frac{\theta}{2}\right)+\beta<1$ ensures the existence of a finite long-run variance under symmetric innovations. A positive $\theta$ captures the leverage effect.
+\newpage
 
-To estimate the parameters of each model, we must assume a distribution for $z_{t+1}$ \ref{eq:1.2}. However, we can set aside this assumption for now, as the modeling of $z_{t+1}$ will be discussed in the next section. For the time being, we will use quasi-maximum likelihood estimation (QMLE), which refers to the application of normal maximum likelihood estimation even when the normality assumption does not necessarily hold.\footnote{A key result in econometrics states that even if the conditional distribution is not normal, MLE provides consistent estimates of the mean and variance parameters as the sample size approaches infinity, provided that the mean and variance functions are correctly specified \cite{Christoffersen2012}. \citeA{francq2010garch} provide a comprehensive treatment of quasi-maximum likelihood estimation (QMLE) for GARCH models, including key results such as consistency, asymptotic normality, and their proofs.}
+To estimate the parameters of each model, we must assume a distribution for $z_{t+1}$ in Equation~\eqref{eq:1.2}. However, we can set aside this assumption for now, as the modeling of $z_{t+1}$ will be discussed in the next section. For the time being, we will use quasi-maximum likelihood estimation (QMLE), which refers to the application of normal maximum likelihood estimation even when the normality assumption does not necessarily hold.\footnote{A key result in econometrics states that even if the conditional distribution is not normal, MLE provides consistent estimates of the mean and variance parameters as the sample size approaches infinity, provided that the mean and variance functions are correctly specified \cite{Christoffersen2012}. \citeA{francq2010garch} provide a comprehensive treatment of quasi-maximum likelihood estimation (QMLE) for GARCH models, including key results such as consistency, asymptotic normality, and their proofs.}
+
+Under the temporary assumption that \(z_{t+1}\sim \mathcal{N}(0,1)\), the conditional distribution of returns implied by Equation~\eqref{eq:1.2} is
+\[
+R_{t+1}\mid \mathcal{F}_t \sim \mathcal{N}(0,\sigma^2_{t+1}),
+\]
+where \(\mathcal{F}_t\) denotes the information set available at time \(t\). The corresponding conditional density is therefore
+\[
+f(R_{t+1}\mid \mathcal{F}_t;\vartheta)
+=
+\frac{1}{\sqrt{2\pi\sigma^2_{t+1}}}
+\exp\left(
+-\frac{R_{t+1}^2}{2\sigma^2_{t+1}}
+\right),
+\]
+where \(\vartheta\) collects the volatility parameters. For the GARCH(1,1) model,
+\[
+\vartheta=(\omega,\alpha,\beta),
+\]
+while for the GJR-GARCH(1,1) model,
+\[
+\vartheta=(\omega,\alpha,\beta,\theta).
+\]
+
+Given a sample \(\{R_t\}_{t=1}^T\), the conditional log-likelihood under normality is
+\[
+\ell(\vartheta)
+=
+\sum_{t=1}^T \log f(R_t\mid \mathcal{F}_{t-1};\vartheta)
+=
+-\frac{1}{2}\sum_{t=1}^T
+\left[
+\log(2\pi)+\log(\sigma_t^2)+\frac{R_t^2}{\sigma_t^2}
+\right].
+\]
+Since \(\log(2\pi)\) is constant, maximizing the likelihood is equivalent to minimizing
+\[
+\sum_{t=1}^T
+\left[
+\log(\sigma_t^2)+\frac{R_t^2}{\sigma_t^2}
+\right].
+\]
+
+The QMLE estimator is then obtained as
+\[
+\hat{\vartheta}
+=
+\arg\max_{\vartheta\in\Theta}\,\ell(\vartheta),
+\]
+subject to the parameter restrictions imposed previously to ensure positivity of the conditional variance and existence of a finite long-run variance. In practice, this optimization is carried out numerically, since the likelihood has no closed-form maximizer\footnote{The likelihood has no closed-form maximizer because the parameters enter the objective function through the recursive variance equation, making the likelihood a nonlinear function of the full conditional variance path.}. Each trial value of \(\vartheta\) generates a full sequence \(\{\sigma_t^2\}_{t=1}^T\) through the corresponding volatility recursion, and the value of the log-likelihood is then evaluated at that sequence.
+
+To start the recursion, an initial variance must be specified. A common choice is to use the sample variance of returns or the unconditional variance implied by the model whenever it exists. Once the initial value is fixed, the recursion produces the entire path of conditional variances needed to evaluate the likelihood.
 
 Figures \ref{2.2} and \ref{2.3} display the squared S\&P 500 returns from Figure \ref{2.1}, now with the estimated variance from the GARCH(1,1) and GJR-GARCH(1,1) models superimposed, respectively. The parameters were estimated using the full sample (2014–2024), and the figures show the model’s performance over this same estimation period. Out-of-sample forecasting and its evaluation will be discussed in \hyperref[chap:4]{Chapter 4}.
 
@@ -82,7 +134,7 @@ QMLE.}
 
 GARCH models possess several desirable theoretical properties that have been studied extensively, including the existence of a long-run variance and the ability to produce longer-horizon forecasts—features that may be relevant for risk management applications. In this chapter, we focus on daily returns and daily volatility forecasts.
 
-Observe that $\alpha+\beta \approx 1$ in the fitted GARCH(1,1), and $\alpha+\beta+\alpha\theta\,\mathbb{E}[I_t]\approx1$ in the GJR–GARCH(1,1); under symmetric innovations $\mathbb{E}[I_t]=\tfrac{1}{2}$, giving $\alpha+\beta+\tfrac{1}{2}\alpha\theta \approx 1$. This near-unit persistence is common in financial return series \cite{Christoffersen2012}. When the persistence parameter equals one—$\alpha+\beta=1$ for GARCH(1,1) and $\alpha+\beta+\alpha\theta\,\mathbb{E}[I_t]=1$ for GJR–GARCH(1,1)—the variance dynamics have a unit root (the IGARCH model case): the unconditional variance is not finite and multi-step variance forecasts do not mean-revert to a constant long-run level. As noted by \citeA{Tsay2010}, $\{\sigma_t^2\}$ is a martingale in this setting, and the sources of volatility persistence warrant careful investigation.
+Observe that $\alpha+\beta \approx 1$ in the fitted GARCH(1,1), and $\alpha+\beta+\alpha\theta\,\mathbb{E}[I_t]\approx1$ in the GJR–GARCH(1,1); under symmetric innovations $\mathbb{E}[I_t]=\tfrac{1}{2}$, giving $\alpha+\beta+\tfrac{1}{2}\alpha\theta \approx 1$. This near-unit persistence is common in financial return series \cite{Christoffersen2012}. When the persistence parameter equals one, i.e.\ $\alpha+\beta=1$ for GARCH(1,1) and $\alpha+\beta+\alpha\theta\,\mathbb{E}[I_t]=1$ for GJR–GARCH(1,1), the variance dynamics have a unit root (the IGARCH model case): the unconditional variance is not finite and multi-step variance forecasts do not mean-revert to a constant long-run level. As noted by \citeA{Tsay2010}, $\{\sigma_t^2\}$ is a martingale\footnote{A stochastic process \(\{X_t\}\) is a martingale with respect to an information set \(\{\mathcal{F}_t\}\) if its conditional expectation satisfies \(\mathbb{E}[X_{t+1}\mid\mathcal{F}_t]=X_t\). Intuitively, given current information, the best forecast of tomorrow’s value is today’s value.} in this setting, and the sources of volatility persistence warrant careful investigation.
 
 Another important theoretical feature of GARCH models is their ability to generate return distributions with heavier tails than the normal distribution, even when normality is assumed for $z_{t+1}$. This means the volatility model itself contributes to capturing the excess kurtosis commonly observed in financial returns. \citeA{Bai2003} derive the kurtosis of GARCH models and show that, provided the kurtosis exists, the distribution of returns under a GARCH process can indeed exhibit heavier tails than the normal distribution.
 

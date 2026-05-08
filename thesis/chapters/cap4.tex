@@ -3,7 +3,7 @@
 
 The next step is to use the models constructed in the previous chapters for forecasting and to evaluate their performance. George E. P. Box is famously quoted as saying, \textit{“All models are wrong, but some are useful.”} In light of Box’s observation, the task now is to evaluate whether the models constructed are among those that are useful. The evaluation will proceed from two perspectives: a statistical perspective to assess model validity, and a risk management perspective to assess their practical usefulness.
 
-To recap and introduce the forecasting procedure, the model parameters were estimated using S\&P 500 log returns from January 2014 to December 2024. The fitted models were then used to forecast the one-day-ahead variance and return density from January to April 2025. To assess their usefulness in a risk management context, the one-day-ahead Value at Risk (VaR) and Expected Shortfall (ES) are computed based on the forecasts from the fitted models.
+To recap and introduce the forecasting procedure, the model parameters were estimated using S\&P 500 log returns from January 2014 to December 2024. The fitted models were then used to forecast the one-day-ahead variance and return density from January to April 2025. To assess their usefulness in a risk management context, the one-day-ahead Value at Risk (VaR) and Expected Shortfall (ES) are computed based on the forecasts from the fitted models.\footnote{Following standard risk-management convention, VaR and ES are reported as positive quantities representing the magnitude of a potential loss, even though the underlying returns in the loss tail are negative. This is why the formal definitions introduced later in the chapter carry a leading minus sign in front of the return quantile and tail expectation.}
 
 As noted by \citeA{Christoffersen2012}, before using the variance model for forecasting, it is appropriate to subject the estimated model to diagnostic checks. In \hyperref[chap:1]{Chapter 1}, the dependence between squared returns was illustrated via the autocorrelation function (ACF) of squared returns. One of the primary objectives of volatility modeling is to eliminate this dependence structure by constructing a volatility measure, $\sigma^2_{t+1}$, such that the standardized squared returns, $\frac{R^2_{t+1}}{\sigma^2_{t+1}}$, exhibit no systematic autocorrelation patterns.
 
@@ -22,6 +22,8 @@ Figures~\ref{4.1} and~\ref{4.2} display the ACFs of the standardized squared ret
    \caption{Autocorrelation of squared returns over variance (2014-2024), GJR-GARCH(1,1).}
     \label{4.2}
 \end{figure}
+
+To complement the visual evidence, a Ljung–Box test was performed on the squared standardized residuals of both models using $m=7$ lags. The resulting $p$-values are 0.6528 for the GARCH(1,1) model and 0.3485 for the GJR-GARCH(1,1) model. In both cases, the null hypothesis that the first seven autocorrelations are jointly zero cannot be rejected. These results support the conclusion suggested by Figures~\ref{4.1} and~\ref{4.2}: the dependence structure originally present in squared returns has been effectively removed by the volatility models.
 
 Before proceeding to forecasting, it is useful to assess which model performs better on the training set (2014–2024) under an appropriate loss function. When selecting a loss function, it is important to consider that risk managers may weigh positive and negative volatility forecast errors differently: underestimating volatility may be more costly than overestimating it by the same amount.
 
@@ -63,9 +65,9 @@ Consider two nested models with log-likelihood values $L_0$ and $L_1$, where mod
 
 Under the null hypothesis that the additional parameter(s) in model 1 are not significant, the LR statistic follows a chi-squared distribution with degrees of freedom equal to the number of parameters added. In this case, since GJR-GARCH(1,1) adds one parameter to GARCH(1,1), the degrees of freedom equal 1.
 
-Using the asymmetric t-distribution as the likelihood function, the LR test yields a p-value below 1\%, indicating little evidence in the data in favor of the null hypothesis. Thus, the additional parameter in the GJR-GARCH model is statistically significant.
+Using the asymmetric $t$-distribution as the likelihood function, the LR test yields a $p$-value below 1\%, indicating little evidence in the data in favor of the null hypothesis. Thus, the additional parameter in the GJR-GARCH model is statistically significant.
 
-Forecasting begins by considering the first two models in Table~\ref{tab:3.1}, which combine the volatility models with the asymmetric t-distribution. These models forecast the entire density of the next day’s return, allowing for the computation of risk measures such as Value-at-Risk (VaR) and Expected Shortfall (ES). Following the definition in \citeA{Christoffersen2012}, VaR is a risk measure that answers the question: What is the loss that will only be exceeded $p \times 100\%$ of the time on the next trading day? In other words, VaR corresponds to a quantile of the distribution of tomorrow’s return.
+Forecasting begins by considering the first two models in Table~\ref{tab:3.1}, which combine the volatility models with the asymmetric $t$-distribution. These models forecast the entire density of the next day’s return, allowing for the computation of risk measures such as Value-at-Risk (VaR) and Expected Shortfall (ES). Following the definition in \citeA{Christoffersen2012}, VaR is a risk measure that answers the question: What is the loss that will only be exceeded $p \times 100\%$ of the time on the next trading day? In other words, VaR corresponds to a quantile of the distribution of tomorrow’s return.
 
 Under the specification $R_{t+1} = \sigma_{t+1} z_{t+1}$, with $z_{t+1} \sim \text{i.i.d. asyt}(d_1, d_2)$, the 1-day ahead $p$-level VaR can be computed as:
 \begin{equation}
@@ -80,10 +82,11 @@ F^{-1}_{\text{asyt}}(p; d_1, d_2) =
 \dfrac{1}{B} \left[(1 + d_2) \sqrt{\dfrac{d_1 - 2}{d_1}} \, t^{-1}_{(p + d_2)/(1 + d_2)}(d_1) - A \right], & \text{if } p \geq \dfrac{1 - d_2}{2}.
 \end{cases}
 \]
+Here, $t^{-1}_{q}(d)$ denotes the $q$-th quantile of the symmetric Student's $t$-distribution with $d$ degrees of freedom.
 
-The 1-day ahead Expected Shortfall (ES) is defined as 
-$$\text{ES}_{t+1}^p=-\mathbb{E}[R_{t+1}|R_{t+1}<\text{VaR}_{t+1}^p],$$ 
-and under the assumption of the asymmetric t-distribution, it can be computed as:
+The 1-day ahead Expected Shortfall (ES) is defined as
+$$\text{ES}_{t+1}^p=-\mathbb{E}[R_{t+1}|R_{t+1}<-\text{VaR}_{t+1}^p],$$ 
+and under the assumption of the asymmetric $t$-distribution, it can be computed as:
 \begin{equation}
 \text{ES}_{t+1}^p = -\sigma_{\text{PF}, t+1} \, \text{ES}_{\text{asyt}}(p),
 \label{eq:4.4}
@@ -98,29 +101,29 @@ where
 \]
 and $Q=F^{-1}_{\text{asyt}}(p; d_1, d_2)$.
 
-According to \citeA{elliott201}, a density forecast—such as those produced by combining volatility models with the asymmetric t-distribution—should satisfy certain desirable properties. One of these is \textit{calibration}, which requires that if a density forecast assigns a specific probability to an event, then the event should occur with approximately that frequency over successive observations.
+According to \citeA{elliott201}, a density forecast—such as those produced by combining volatility models with the asymmetric $t$-distribution—should satisfy certain desirable properties. One of these is \textit{calibration}, which requires that if a density forecast assigns a specific probability to an event, then the event should occur with approximately that frequency over successive observations.
 
-This property can be assessed using Value-at-Risk. At the $p = 2.5\%$ level, a well-calibrated model should produce VaR breaches approximately 2.5\% of the time during the evaluation period. Figures~\ref{4.3} and~\ref{4.4} show the daily returns of the S\&P 500 from January to April 2025, along with the one-day-ahead 2.5\% VaR forecasts and the corresponding VaR breaches, assuming an asymmetric t-distribution.
+This property can be assessed using Value-at-Risk. At the $p = 2.5\%$ level, a well-calibrated model should produce VaR breaches approximately 2.5\% of the time during the evaluation period. Figures~\ref{4.3} and~\ref{4.4} show the daily returns of the S\&P 500 from January to April 2025, along with the one-day-ahead 2.5\% VaR forecasts and the corresponding VaR breaches, assuming an asymmetric $t$-distribution.
 
 With 81 observations in the test period, approximately two breaches would be expected under correct coverage. However, both models exhibit more than two breaches, indicating a failure to meet the calibration criterion. It is also worth noting the dynamic and adaptive behavior of the VaR forecast: following the market shock induced by Trump’s tariff imposition, volatility increased sharply. The VaR initially fails to capture this rise—resulting in several breaches—but gradually adjusts to the new, higher volatility regime. 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.18]{../../plots/4.3.png} % Replace 
-   \caption{2.5\% VaR forecast and breaches in the test period, GARCH-Asyt}
+    \includegraphics[scale=0.175]{../../plots/4.3.png} % Replace 
+   \caption{2.5\% VaR forecast and breaches in the test period, GARCH-Asyt (6 breaches observed; 2 expected).}
     \label{4.3}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.18]{../../plots/4.4.png} % Replace 
-   \caption{2.5\% VaR forecast and breaches in the test period, GJR-Asyt.}
+    \includegraphics[scale=0.175]{../../plots/4.4.png} % Replace 
+   \caption{2.5\% VaR forecast and breaches in the test period, GJR-Asyt (5 breaches observed; 2 expected).}
     \label{4.4}
 \end{figure}
 
 To improve the coverage of VaR and account for model risk, sources of uncertainty such as parameter estimation, model specification, and error distribution can be incorporated. \citeA{mazzeu2018uncertainty} propose several approaches to address these issues in ARMA models, which can be extended to the volatility models considered here.
 
-As a simpler alternative, this chapter considers the use of Expected Shortfall (ES) as a way to stress the VaR forecast. Although ES is an expected value and does not correspond to a specific coverage level, it provides a more conservative risk measure by reflecting the average loss in the tail, thus functioning as a stressed version of VaR. Figures 4.5 and 4.6 display the 2.5\% Expected Shortfall for the previous models. 
+As a simpler alternative, this chapter considers the use of Expected Shortfall (ES) as a way to stress the VaR forecast. Although ES is an expected value and does not correspond to a specific coverage level, it provides a more conservative risk measure by reflecting the average loss in the tail, thus functioning as a stressed version of VaR. Figures 4.5 and 4.6 display the 2.5\% Expected Shortfall for the previous models. It is worth noting that, among the cluster of consecutive breaches in early April in both Figures, only the first one also exceeds the ES forecast, illustrating how ES tempers the speed at which the conservative threshold is itself broken once volatility surges.
 
 \begin{figure}[H]
     \centering
@@ -138,7 +141,7 @@ As a simpler alternative, this chapter considers the use of Expected Shortfall (
 
 \citeA{christoffersen1998evaluating} provides an intuitive framework to evaluate the performance of VaR forecasts by testing two essential properties: coverage and independence.
 
-Recall that a 1-day ahead VaR forecast at level p, denoted $\text{VaR}_{t + 1}^p$, implies that the actual return will fall below this threshold only $p \times 100\%$ of the time. Given a time series of ex-ante VaR forecasts and corresponding realized returns, the hit sequence of violations can be defined as follows:
+Recall that a 1-day ahead VaR forecast at level $p$, denoted $\text{VaR}_{t + 1}^p$, implies that the actual return will fall below this threshold only $p \times 100\%$ of the time. Given a time series of ex-ante VaR forecasts and corresponding realized returns, the hit sequence of violations can be defined as follows:
 \begin{equation}
 I_{t+1} =
 \begin{cases}
@@ -148,12 +151,13 @@ I_{t+1} =
 \label{eq:4.5}
 \end{equation}
 
-If the VaR model is correctly specified, violations should occur randomly with probability p each day, implying that the hit sequence $\{I_{t+1}\}$ is independently and identically distributed (i.i.d.) as a $\text{Bernoulli}(p)$ random variable. Predictability of violations based on past information would indicate model misspecification and suggest room for improvement.
+If the VaR model is correctly specified, violations should occur randomly with probability $p$ each day, implying that the hit sequence $\{I_{t+1}\}$ is independently and identically distributed (i.i.d.) as a $\text{Bernoulli}(p)$ random variable. Predictability of violations based on past information would indicate model misspecification and suggest room for improvement.
 
-Three distinct properties can be tested, beginning with unconditional coverage. This test evaluates whether the observed frequency of breaches matches the expected frequency $p$. Let $\pi$ represent the observed violation proportion, estimated as $\hat{\pi} = T_1 / T$ (with $T_1$ violations observed out of $T$ total observations).  Since the Bernoulli likelihood is maximized at the sample mean, $\hat{\pi}=T_1/T$ is the maximum likelihood estimator of p. The hypotheses are stated as:
-\[H_0: I_{t+1} \sim \text{Bernoulli}(p) \quad \text{vs.} \quad H_1: I_{t+1} \sim \text{Bernoulli}(\pi).\]
-
-The likelihood ratio test statistic for unconditional coverage is given by $LR_{\text{uc}} = -2 \ln\left( \frac{L(p)}{L(\hat{\pi})} \right)$ which, under the null hypothesis, asymptotically follows a $\chi^2$ distribution with 1 degree of freedom.
+Three distinct properties can be tested, beginning with unconditional coverage. This test evaluates whether the observed frequency of breaches matches the expected frequency $p$. Let $\pi$ denote the parameter of the Bernoulli distribution governing the hit sequence, so that $I_{t+1}\sim \text{Bernoulli}(\pi)$. It can be estimated by
+$\hat{\pi} = \frac{T_1}{T}$,
+where $T_1$ is the number of violations observed in $T$ total observations. Since the Bernoulli likelihood is maximized at the sample mean, $\hat{\pi}=T_1/T$ is the maximum likelihood estimator of $\pi$. The hypotheses are then stated as
+\[H_0:\pi=p \quad \text{vs.} \quad H_1:\pi\neq p.\]
+The likelihood ratio test statistic for unconditional coverage is given by $LR_{\text{uc}} = -2 \ln\left( \frac{L(p)}{L(\hat{\pi})} \right)$ which, under the null hypothesis, asymptotically follows a $\chi^2$ distribution with 1 degree of freedom.\footnote{This result follows from the general asymptotic theory of likelihood ratio tests: under standard regularity conditions, the likelihood ratio statistic converges in distribution to a chi-squared random variable with degrees of freedom equal to the difference in the number of free parameters under the null and alternative hypotheses. See \citeA{casella2002statistical} for a standard treatment.}
 
 Second, the independence of VaR violations can be assessed. Independence is critical; even if a VaR model achieves correct unconditional coverage, clustered violations would be problematic from a risk management perspective. Ideally, violations should occur randomly and independently, rather than grouping together in time. Therefore, testing for independence involves checking if the violations exhibit temporal clustering.
 
@@ -169,7 +173,7 @@ where, for example, the probability of a VaR violation tomorrow ($I_{t+1}=1$) gi
 \[
 L(\Pi_1) = (1 - \pi_{01})^{T_{00}} \, \pi_{01}^{T_{01}} \, (1 - \pi_{11})^{T_{10}} \, \pi_{11}^{T_{11}}.
 \]
-where $T_{ij}, \ i,j \in \{0,1\}$, is the number of times is the count of times a state $j$ occurs immediately after state $i$.  The parameters $\pi_{01}$ and $\pi_{11}$ are estimated via maximum likelihood.
+where $T_{ij}, \ i,j \in \{0,1\}$, is the number of times a state $j$ occurs immediately after state $i$.  The parameters $\pi_{01}$ and $\pi_{11}$ are estimated via maximum likelihood.
 
 The null hypothesis of independence assumes that the probability of a violation does not depend on previous violations, thus simplifying the transition matrix to:
 \[
@@ -181,7 +185,7 @@ The null hypothesis of independence assumes that the probability of a violation 
 \]
 The likelihood ratio test for independence and its distribution under the null hypothesis is:
 \[
-LR_{\text{ind}} = -2 \ln \left[ \dfrac{L(\hat{\Pi})}{L(\hat{\Pi}_1)} \right] \dot\sim \chi^2_1,
+LR_{\text{ind}} = -2 \ln \left[ \dfrac{L(\hat{\Pi}_0)}{L(\hat{\Pi}_1)} \right] \dot\sim \chi^2_1,
 \]
 where $L(\hat{\Pi}_0)$ and $L(\hat{\Pi}_1)$ represent the maximum likelihood under the null hypothesis of independence and under the alternative hypothesis allowing dependence, respectively.
 
@@ -191,11 +195,11 @@ LR_{\text{cc}} = -2 \ln \left[ \dfrac{L(p)}{L(\hat{\Pi}_1)} \right] \dot\sim \ch
 \]
 which decomposes neatly into two previously described components:  $LR_{\text{cc}}=LR_{\text{uc}}+LR_{\text{ind}}$. 
 
-In practice, backtesting frequently suffers from limited data, resulting in a relatively small number of violations $T_1$, which are crucial for the tests. Thus, relying on asymptotic $\chi^2$ distributions may not always be appropriate. Monte Carlo simulated p-values provide a robust alternative in this scenario. \citeA{christoffersen2004backtesting} discuss the implementation of such Monte Carlo-based p-values, a method originally proposed by \citeA{dufour2006monte}.
+In practice, backtesting frequently suffers from limited data, resulting in a relatively small number of violations $T_1$, which are crucial for the tests. Thus, relying on asymptotic $\chi^2$ distributions may not always be appropriate. Monte Carlo simulated $p$-values provide a robust alternative in this scenario. \citeA{christoffersen2004backtesting} discuss the implementation of such Monte Carlo-based $p$-values, a method originally proposed by Dufour in a 2000 manuscript that the authors cite and that was later published as \citeA{dufour2006monte}.
 
-To calculate these simulated p-values, generate 999 random samples of $\text{i.i.d. Bernoulli}(p)$ variables, each of length $T$, matching the actual sample size. From these artificial samples, compute 999 simulated test statistics, denoted as $\{\widetilde{LR}{\text{uc}}(i)\}_{i=1}^{999}$. Finally, the simulated p-value is calculated as the proportion of simulated $LR_{\text{uc}}$ statistics exceeding the observed test statistic, providing a reliable measure of the test’s significance.
+To calculate these simulated $p$-values, generate 999 random samples of $\text{i.i.d. Bernoulli}(p)$ variables, each of length $T$, matching the actual sample size. From these artificial samples, compute 999 simulated test statistics, denoted as $\{\widetilde{LR}_{\text{uc}}(i)\}_{i=1}^{999}$. Finally, the simulated $p$-value is calculated as the proportion of simulated $LR_{\text{uc}}$ statistics exceeding the observed test statistic, providing a reliable measure of the test’s significance.
 
-Table~\ref{tab:4.2} reports the theoretical and simulated p-values for the tests proposed by \citeA{christoffersen1998evaluating}, applied to the GARCH-Asyt and GJR-Asyt models.
+Table~\ref{tab:4.2} reports the theoretical and simulated $p$-values for the tests proposed by \citeA{christoffersen1998evaluating}, applied to the GARCH-Asyt and GJR-Asyt models.
 
 \begin{table}[H]
 \centering
@@ -211,11 +215,11 @@ $LR_{\text{cc}}$   & Theoretical & 0.0523 & 0.1123 \\
                    & Simulated   & 0.015 & 0.028 \\
 \bottomrule
 \end{tabular}
-\caption{Theoretical and simulated p-values for VaR backtesting statistics.}
+\caption{Theoretical and simulated $p$-values for VaR backtesting statistics.}
 \label{tab:4.2}
 \end{table}
 
-These models exhibit waek performance: they fail to achieve acceptable coverage, and the violations do not seem independent. As shown in Figures~\ref{4.3} and~\ref{4.4}, two breaches occur in quick succession at the onset of President Trump’s tariff imposition, indicating slow adaptation to a sharp increase in volatility and resulting in clustered VaR violations.
+These models exhibit weak performance: they fail to achieve acceptable coverage, and the violations do not seem independent. As shown in Figures~\ref{4.3} and~\ref{4.4}, two breaches occur in quick succession at the onset of President Trump’s tariff imposition, indicating slow adaptation to a sharp increase in volatility and resulting in clustered VaR violations.
 
 Attention now turns to evaluating the quality of the density forecasts. Focusing on the full forecasted return distribution offers the advantage of potentially increasing the power to reject misspecified risk models.
 
@@ -231,6 +235,7 @@ To assess the validity of the risk models considered here, the hypothesis of int
 
 \[H_0: u_{t+1} \sim \text{i.i.d. Uniform}(0,1).\]
 
+\newpage
 \citeA{diebold1998evaluating} suggest a visual diagnostic using a histogram of the PIT values $\{u_{t+1}\} $ to assess whether they appear approximately uniform. If systematic deviations from flatness are observed, this may indicate that the forecast distribution is misspecified. Figures~\ref{4.7} and~\ref{4.8} display the PIT histograms for the GARCH-Asyt and GJR-Asyt models over the test period, respectively. There are no evident deviations from uniformity.
 
 \begin{figure}[H]
@@ -295,20 +300,20 @@ After performing the test, the resulting $p$-value is 0.015, with a positive tes
 
 Attention now turns toward the GARCH-EVT and GJR-EVT models. These models provide conditional tail distributions rather than full-density forecasts. Informally, one might describe them as tail forecasts. Although several frameworks exist to evaluate tail forecasts, such as those proposed by \citeA{berkowitz2001testing} and \citeA{Christoffersen2012}, these approaches cannot be directly adapted to the conditional GARCH-EVT and GJR-EVT models considered here. Thus, these two models will only be assessed from a risk management perspective; a rigorous statistical validation method remains to be formally established. One possible validation strategy could involve adapting the PIT approach specifically for observations exceeding the threshold $u$, but this idea has not yet been fully explored in the reviewed literature.
 
-According to the Pickands–Balkema–de Haan theorem, for sufficiently large threshold u,
+According to the Pickands–Balkema–de Haan theorem, for sufficiently large threshold $u$,
 \[
 \frac{F(y) - F(u)}{1 - F(u)} \approx G_{u, \xi,\beta}(y) \quad \text{for } y>u,
 \]
 
 where $G_{u, \xi, \beta}(y)$ denotes the cumulative distribution function (CDF) of the generalized Pareto distribution (GPD). Approximating the CDF $F(u)$ of the standardized returns using the empirical distribution, we have:
 \[
-\hat{F}(\eta) = \frac{T - N_{u}}{T},
+\hat{F}(u) = \frac{T - N_{u}}{T},
 \]
 where $N_u$ is the number of threshold exceedances and $T$ is the training sample size. Consequently, the tail distribution can be approximated by:
 \[
 F(y) \approx  F(u) + G(y)[1 - F(u)] \approx 1 - \frac{N_{u}}{T} \left[ 1 + \frac{\xi(y - u)}{\beta} \right]^{-1/\xi}.
 \]
-This approximation provides a direct method to estimate quantiles used for VaR calculations. Specifically, for a small tail probability $p$, letting $q = 1 - p$, solving the previous equation for y yields the estimated VaR of the standardized returns:
+This approximation provides a direct method to estimate quantiles used for VaR calculations. Specifically, for a small tail probability $p$, letting $q = 1 - p$, solving the previous equation for $y$ yields the estimated VaR of the standardized returns:
 
 \begin{equation}
     \text{VaR}_{z,t+1}^{p} =  u - \frac{\beta}{\xi} \left\{ 1 - \left[ \frac{T}{N_{u}} (1 - q) \right]^{-\xi} \right\}.
@@ -329,19 +334,19 @@ Following similar logic, the Expected Shortfall (ES) for the GARCH-EVT and GJR-E
 
 where $\text{ES}_{z,t+1}^{p}= \frac{\text{VaR}_{z,t+1}^{p}}{1 - \xi} + \frac{\beta - \xi u}{1 - \xi}.$
 
-Figures~\ref{4.11} and~\ref{4.12} display the forecasted 2.5\% VaR, ES, and the observed VaR breaches during the test period. Notice that these models, which incorporate extreme value theory, yield a more conservative (larger magnitude) VaR and consequently exhibit fewer breaches compared to the asymmetric t-distribution models.
+Figures~\ref{4.11} and~\ref{4.12} display the forecasted 2.5\% VaR, ES, and the observed VaR breaches during the test period. Notice that these models, which incorporate extreme value theory, yield a more conservative (larger magnitude) VaR and consequently exhibit fewer breaches compared to the asymmetric $t$-distribution models. As with the asymmetric-$t$ models, among the cluster of consecutive breaches in early April only the first one also exceeds the ES forecast, again illustrating how ES tempers the speed at which the conservative threshold is itself broken once volatility surges.
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.17]{../../plots/4.11.png} % Replace 
-   \caption{2.5\% VaR ES, and VaR breaches in the test period, GARCH-EVT.}
+   \caption{2.5\% VaR, ES, and VaR breaches in the test period, GARCH-EVT (4 breaches observed; 2 expected).}
     \label{4.11}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.17]{../../plots/4.12.png} % Replace 
-   \caption{2.5\% VaR ES, and VaR breaches in the test period, GJR-EVT.}
+   \caption{2.5\% VaR, ES, and VaR breaches in the test period, GJR-EVT (3 breaches observed; 2 expected).}
     \label{4.12}
 \end{figure}
 
@@ -367,9 +372,31 @@ $LR_{\text{cc}}$   & Theoretical & 0.1706 & 0.1622 \\
 
 Both models offer acceptable coverage, but show weaknesses regarding the independence of VaR breaches; primarily due to the two consecutive violations at the onset of the tariff imposed by the United States. This suggests that the models respond slowly to sudden volatility increases. The GJR-EVT model provides acceptable coverage but still fails the independence test. Its comparatively better performance arises from the GJR volatility specification, which adapts more quickly to the volatility increases in the test sample (though not rapidly enough to avoid consecutive breaches), along with the more conservative tail estimation offered by the EVT approach.
 
-Finally, as an exploratory stress-testing exercise, the four models considered (GARCH-Asyt, GJR-Asyt, GARCH-EVT, and GJR-EVT) were assessed for their performance during the 2008 financial crisis, evaluating their effectiveness from a risk management perspective. The results are presented in Figure \ref{4.13}. Notice that the EVT-based models exhibit fewer VaR breaches, with the GARCH-EVT model performing best in terms of minimizing VaR violations. Additional stress-testing methodologies and their implementation are discussed by \citeA{Christoffersen2012}.
+Finally, as an exploratory stress-testing exercise, the four models considered (GARCH-Asyt, GJR-Asyt, GARCH-EVT, and GJR-EVT) were evaluated over the 2008 financial crisis to assess their performance from a risk management perspective. The results are presented in Figure~\ref{4.13}, where the dotted lines represent the VaR forecasts under the four models. The EVT-based models exhibit fewer VaR breaches, with the GARCH-EVT model performing best in terms of minimizing violations. Additional stress-testing methodologies and their implementation are discussed by \citeA{Christoffersen2012}.
 
-Up to now, only univariate models have been considered. The next chapter adopts a copula-based approach to model dependence among assets and produce multivariate forecasts. The reason behind this approach is that copulas integrate naturally with the univariate models developed so far. 
+To complement Figure~\ref{4.13}, Table~\ref{tab:4.4} disaggregates the 2008 VaR breaches into a relatively calmer January--August window and the September--December crisis window.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lccc}
+\toprule
+\textbf{Model} & \textbf{Jan--Aug} & \textbf{Sep--Dec} & \textbf{Total} \\
+\midrule
+GARCH-Asyt & 9 & 7 & 16 \\
+GJR-Asyt   & 8 & 5 & 13 \\
+GARCH-EVT  & 4 & 5 & 9  \\
+GJR-EVT    & 7 & 5 & 12 \\
+\midrule
+Expected   & 4.17 & 2.10 & 6.28 \\
+\bottomrule
+\end{tabular}
+\caption{Number of 2.5\% VaR breaches by period and model during the 2008 stress test. The January--August window contains 167 trading days and the September--December window 84; the last row reports the expected number of breaches at the 2.5\% level.}
+\label{tab:4.4}
+\end{table}
+
+All four specifications exceed their expected number of breaches in both sub-periods, but the deterioration is markedly sharper in September--December. The GARCH-EVT model is essentially well calibrated in the first window (4 observed against 4.17 expected) yet records more than twice the expected breaches in the second (5 against 2.10); the remaining models show an analogous widening of the gap. Since the September--December window contains roughly half as many trading days as the first, the corresponding rise in breach frequency is even more pronounced than the raw counts suggest. This pattern indicates that the four models are unable to adapt quickly enough to the abrupt regime change in September--October 2008.
+
+Up to this point, only univariate models have been considered. While useful, such models may be insufficient for assessing the risk of a portfolio of assets, for which a multivariate framework is required. The next chapter adopts a copula-based approach to model dependence among assets and to produce multivariate forecasts. The main motivation for this choice is that copulas integrate naturally with the univariate models developed so far.
 
 \begin{figure}[H]
     \centering

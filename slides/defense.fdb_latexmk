@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex slides/defense"] 1771670386 "slides/defense.aux" "slides/defense.bbl" "slides/defense" 1771670390 0
-  "./biblo.bib" 1771679168 11846 f8ed101c67468f1cb006cd7e9430fcf4 ""
+["bibtex slides/defense"] 1775371123 "slides/defense.aux" "slides/defense.bbl" "slides/defense" 1775371127 0
+  "./biblo.bib" 1775362907 12072 868a0a49a3a4edf7e5e144d0c79b3823 ""
   "/usr/local/texlive/2023/texmf-dist/bibtex/bst/apacite/apacite.bst" 1374530685 141073 9d7b79dbf9d91133318126032cff8c27 ""
-  "slides/defense.aux" 1771670390 14165 0aaec055eba6fbc0a7ad29729e5d43ac "pdflatex"
+  "slides/defense.aux" 1775371127 14165 0aaec055eba6fbc0a7ad29729e5d43ac "pdflatex"
   (generated)
   "slides/defense.bbl"
   "slides/defense.blg"
   (rewritten before read)
-["pdflatex"] 1771670387 "slides/defense.tex" "slides/defense.pdf" "defense" 1771670390 0
+["pdflatex"] 1775371123 "slides/defense.tex" "slides/defense.pdf" "defense" 1775371127 0
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/fontawesome5/fa5brands0.enc" 1622837620 2920 d63721872b8c77041b88e51b8f7c291d ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -267,7 +267,7 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1709148726 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1709148686 7883464 e19e74aad0c7962b11d64c8540c9fd7d ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "biblo.bib" 1771679168 11846 f8ed101c67468f1cb006cd7e9430fcf4 ""
+  "biblo.bib" 1775362907 12072 868a0a49a3a4edf7e5e144d0c79b3823 ""
   "logo-ITAM.png" 1771679168 21898 0d4e781020cc13ba738a4a49ca94b60b ""
   "plots//1.1.png" 1771679170 93614 44ac96c06319c92b554bad0e387137ef ""
   "plots//1.2.png" 1771679168 83135 0bd210e20ad2438f1879e8a4a5ea0678 ""
@@ -281,10 +281,10 @@
   "plots//3.3.png" 1771679168 127894 4867b02292f42dd94cf49cc4dabd36d1 ""
   "plots//3.5.png" 1771679168 90734 8b3330546ff35e95751f119f8dff2669 ""
   "plots//3.7.png" 1771679168 124119 30bf0af91638c798eb1b47d952bed1c4 ""
-  "plots//4.1.png" 1771679168 222444 f10da366184e46d3639d57ae5181416f ""
+  "plots//4.1.png" 1775356154 86370 e2194715ffdb32162b8d6ec5071d6fd8 ""
   "plots//4.11.png" 1771679168 157073 c8996dc14678c00e9e305faf2fdeaa44 ""
   "plots//4.12.png" 1771679168 160540 c9ec67d4d64fba7329e4834b33b593e1 ""
-  "plots//4.2.png" 1771679168 187379 519b3274c6da14f4bce7d856493e9ee7 ""
+  "plots//4.2.png" 1775356198 85263 5cb894a3e2042a29da9ff7a8725e8f8a ""
   "plots//4.3.png" 1771679170 134372 e88544adf127e4033c507ff988ff07ff ""
   "plots//4.4.png" 1771679170 137129 832309eb58ad18964fd69e32a6910938 ""
   "plots//4.7.png" 1771679168 57517 7beb32e2edea387c84a37018e183db0c ""
@@ -295,12 +295,12 @@
   "plots//5.4.png" 1771679170 129512 7f245cd5be09a3090f9380dfcd8d106b ""
   "plots//5.6.png" 1771679170 134139 27d7e07519665b01440f6c59eaff099f ""
   "plots//5.7.png" 1771679170 134983 aae35233acd101c15832c5e4603d8121 ""
-  "slides/defense.aux" 1771670390 14165 0aaec055eba6fbc0a7ad29729e5d43ac "pdflatex"
-  "slides/defense.bbl" 1771670387 13107 c61a3dba7dcf0e7510536b11dad1a1b8 "bibtex slides/defense"
-  "slides/defense.nav" 1771670390 5173 925bb5fefcdb45bbfae4b7cf2f1c848f "pdflatex"
-  "slides/defense.out" 1771670390 1167 935674ee41b88ca887dd1dafa62b1457 "pdflatex"
-  "slides/defense.tex" 1771669460 19131 6a90559b2dc395b05af8c0b9ff8f4577 ""
-  "slides/defense.toc" 1771670390 434 0e75627278404b32e3ac8cec20b7a5a5 "pdflatex"
+  "slides/defense.aux" 1775371127 14165 0aaec055eba6fbc0a7ad29729e5d43ac "pdflatex"
+  "slides/defense.bbl" 1775371123 13107 c61a3dba7dcf0e7510536b11dad1a1b8 "bibtex slides/defense"
+  "slides/defense.nav" 1775371127 5173 925bb5fefcdb45bbfae4b7cf2f1c848f "pdflatex"
+  "slides/defense.out" 1775371127 1167 935674ee41b88ca887dd1dafa62b1457 "pdflatex"
+  "slides/defense.tex" 1771709159 19248 e03938ee57fcdfb924a4e155f59a7612 ""
+  "slides/defense.toc" 1775371127 434 0e75627278404b32e3ac8cec20b7a5a5 "pdflatex"
   (generated)
   "slides/defense.aux"
   "slides/defense.log"

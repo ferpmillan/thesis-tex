@@ -8,7 +8,7 @@ Alternative approaches to modeling a set of assets (multivariate risk) include t
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.18]{../../plots/5.1.png} % Replace 
-   \caption{25-Day rolling correlation of standardized returns (training period).}
+   \caption{25-day rolling correlation between the standardized returns of the S\&P 500 and the 10-year Treasury note index (training period).}
     \label{5.1}
 \end{figure}
 
@@ -16,7 +16,7 @@ The DCC model approach has two key limitations. First, it focuses exclusively on
 
 The copula modeling approach addresses these issues. It can capture both linear and nonlinear dependencies effectively and allows for separate, flexible univariate models for each asset. These individual univariate models serve as inputs to the copula—analogous to ingredients being blended—resulting in a multivariate model that preserves each asset’s distinctive univariate properties.
 
-Although copula models can be specified dynamically, this chapter employs a static copula for the standardized returns, following \citeA{jondeau2006copulagarch}. In this static specification, the copula parameters are time-invariant (e.g., in a t-copula the correlation parameter $\rho^*$ and the degrees of freedom $d$ do not vary with $t$); any dynamics arise solely from the marginal models. Consequently, the specification does not capture time variation in cross-asset dependence (e.g., dynamic correlations). Dynamic copula models have been extensively developed by \citeA{patton2006modelling}, \citeA{patton2011factor}, and \citeA{christoffersen2011joint}. In particular, \citeA{christoffersen2011joint} embed Dynamic Conditional Correlation dynamics within the copula, yielding time-varying dependence.
+Although copula models can be specified dynamically, this chapter employs a static copula for the standardized returns, following \citeA{jondeau2006copulagarch}. In this static specification, the copula parameters are time-invariant (e.g., in a $t$-copula the correlation parameter $\rho^*$ and the degrees of freedom $d$ do not vary with $t$); any dynamics arise solely from the marginal models. Consequently, the specification does not capture time variation in cross-asset dependence (e.g., dynamic correlations). Dynamic copula models have been extensively developed by \citeA{patton2006modelling}, \citeA{patton2011factor}, and \citeA{christoffersen2011joint}. In particular, \citeA{christoffersen2011joint} embed Dynamic Conditional Correlation dynamics within the copula, yielding time-varying dependence.
 
 From a risk management perspective, the tail dependence between assets warrants particular attention. A portfolio containing assets with strongly correlated left-tail returns could suffer significant losses during sharp market downturns. To visualize such tail dependencies, threshold correlations play a key role. The threshold correlation between two standardized returns $z_{1,t}$ and $z_{2,t}$ at level $p$ is defined as
 \begin{equation}
@@ -71,16 +71,16 @@ An important practical advantage of this method is that it simplifies parameter 
 
 While Sklar’s theorem is quite general, holding true for a broad class of multivariate distributions, it does not specify a functional form for $G(u_1, \ldots, u_n)$. Therefore, an appropriate copula model must be selected based on the application and underlying data.
 
-The t-copula, widely used in the literature (see, for instance, \citeA{christoffersen2011joint}),can be extended naturally to $n$ assets and, as will be demonstrated subsequently, is capable of reproducing reasonably the threshold correlations shown in Figure~\ref{5.2}. For these reasons, the t-copula is selected for our analysis. However, it is important to highlight that \citeA{okimoto2008asymmetric} finds evidence of significant asymmetric dependence structures in financial data, which symmetric copulas—such as Gaussian and t-copulas—may fail to fully capture.
+The $t$-copula, widely used in the literature (see, for instance, \citeA{christoffersen2011joint}),can be extended naturally to $n$ assets and, as will be demonstrated subsequently, is capable of reproducing reasonably the threshold correlations shown in Figure~\ref{5.2}. For these reasons, the $t$-copula is selected for our analysis. However, it is important to highlight that \citeA{okimoto2008asymmetric} finds evidence of significant asymmetric dependence structures in financial data, which symmetric copulas—such as Gaussian and $t$-copulas—may fail to fully capture.
 
-The cumulative distribution function of the bivariate t-copula is defined as:
+The cumulative distribution function of the bivariate $t$-copula is defined as:
 \begin{equation}
 G(u_1, u_2; \rho^*, d) = t_{(d, \rho^*)} \left( t^{-1}(u_1; d), \, t^{-1}(u_2; d) \right)
 \label{eq:5.2}
 \end{equation}
-where $t_{(d,\rho^*)}(\cdot)$ denotes the (non-standardized) symmetric multivariate t-distribution, $t^{-1}(u; d)$ is the inverse CDF of the (non-standardized) symmetric univariate t-distribution, and $\rho^*$ is the correlation parameter between $t^{-1}(u_1; d)$ and $t^{-1}(u_2; d)$, commonly known as the copula correlation.
+where $t_{(d,\rho^*)}(\cdot)$ denotes the (non-standardized) symmetric multivariate $t$-distribution, $t^{-1}(u; d)$ is the inverse CDF of the (non-standardized) symmetric univariate $t$-distribution, and $\rho^*$ is the correlation parameter between $t^{-1}(u_1; d)$ and $t^{-1}(u_2; d)$, commonly known as the copula correlation.
 
-The corresponding probability density function or the bivariate t-copula is:
+The corresponding probability density function or the bivariate $t$-copula is:
 
 \begin{equation}
 \begin{aligned}
@@ -92,15 +92,15 @@ g(u_1, u_2; \rho^*, d) &= \frac{
 &= \frac{
     \Gamma\left(\frac{d+2}{2}\right)
 }{
-    \sqrt{1 - \rho^2} \, \Gamma\left(\frac{d}{2}\right)
+    \sqrt{1 - (\rho^*)^2} \, \Gamma\left(\frac{d}{2}\right)
 }
 \left(
 \frac{\Gamma\left(\frac{d}{2}\right)}{\Gamma\left(\frac{d+1}{2}\right)}
 \right)^2 \\
 &\quad \times
 \frac{\left(
-1 + \frac{(t^{-1}(u_1; d))^2 + (t^{-1}(u_2; d))^2 - 2\rho \, t^{-1}(u_1; d)t^{-1}(u_2; d)}
-{d(1 - \rho^2)}
+1 + \frac{(t^{-1}(u_1; d))^2 + (t^{-1}(u_2; d))^2 - 2\rho^* \, t^{-1}(u_1; d)t^{-1}(u_2; d)}
+{d(1 - (\rho^*)^2)}
 \right)^{-\frac{d+2}{2}}}
 {
 \left(
@@ -112,9 +112,9 @@ g(u_1, u_2; \rho^*, d) &= \frac{
 \end{aligned}
 \label{eq:5.3}
 \end{equation}
-where $f_{t(d)}(\cdot; d)$ denotes the PDF of the symmetric univariate t-distribution with $d$ degrees of freedom.
+where $f_{t(d)}(\cdot; d)$ denotes the PDF of the symmetric univariate $t$-distribution with $d$ degrees of freedom.
 
-The t-copula will be fitted to the standardized returns of two assets: the S\&P 500 and the 10-year Treasury note index (Bloomberg ticker: SPBDU1BT Index). The estimation period spans January 2014 to December 2024, matching the training period used previously for the S\&P 500 returns. Initially, univariate models are fitted separately to each asset following the framework outlined in earlier chapters, namely, a volatility model combined with a density model for the standardized asset returns. Because the copula approach requires complete density forecasts as inputs, only the asymmetric t-distribution—among the models discussed in \hyperref[chap:3]{Chapter 3}—is considered here. Table~\ref{tab:5.1} reports the estimated parameters for the GARCH-Asyt and GJR-Asyt models applied to the Treasury note index.
+The $t$-copula will be fitted to the standardized returns of two assets: the S\&P 500 and the 10-year Treasury note index (Bloomberg ticker: SPBDU1BT Index). The estimation period spans January 2014 to December 2024, matching the training period used previously for the S\&P 500 returns. Initially, univariate models are fitted separately to each asset following the framework outlined in earlier chapters, namely, a volatility model combined with a density model for the standardized asset returns. Because the copula approach requires complete density forecasts as inputs, only the asymmetric $t$-distribution—among the models discussed in \hyperref[chap:3]{Chapter 3}—is considered here. Table~\ref{tab:5.1} presents the estimated parameters of the GARCH-Asyt and GJR-Asyt models applied to the Treasury note index, following the specification given in Equations~\eqref{eq:3.2}, \eqref{eq:3.3}, and \eqref{eq:3.4}.
 
 \begin{table}[H]
 \footnotesize
@@ -145,7 +145,7 @@ GJR-GJR & $-0.2088$ & 4.8304  \\
 \caption{Copula models estimated parameters.}
 \label{tab:5.2}
 \end{table}
-Using the estimated copula model, it is possible to simulate data and examine whether the model-implied threshold correlations match the empirical pattern observed in Figure \ref{5.2}. Figures~\ref{5.3} and \ref{5.4} display the simulated threshold correlations obtained from the GARCH-GARCH and GJR-GJR copula models, respectively, alongside the empirical threshold correlations derived from the standardized returns. The t-copula successfully reasonably replicates the increasing correlation observed in the tails. However, it is worth mentioning that the standardized returns exhibit slightly higher correlation in the right tail, a subtle feature the symmetric t-copula cannot fully replicate.
+Using the estimated copula model, it is possible to simulate data and examine whether the model-implied threshold correlations match the empirical pattern observed in Figure \ref{5.2}. Figures~\ref{5.3} and \ref{5.4} display the simulated threshold correlations obtained from the GARCH-GARCH and GJR-GJR copula models, respectively, alongside the empirical threshold correlations derived from the standardized returns. The $t$-copula successfully reasonably replicates the increasing correlation observed in the tails. However, it is worth mentioning that the standardized returns exhibit slightly higher correlation in the right tail, a subtle feature the symmetric $t$-copula cannot fully replicate.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.17]{../../plots/5.3.png} % Replace 
@@ -166,7 +166,7 @@ The subsequent step is to evaluate the forecasting performance of the copula mod
 
 Due to the complexity of the multivariate setup, closed-form expressions for the next day’s portfolio density forecast, VaR, and ES are no longer feasible. Consequently, a Monte Carlo approach is used. The algorithm is as follows:
 \begin{enumerate}
-\item[i.] At the end of trading day t, observed returns $R_{1,t}$ and $R_{2,t}$ are used to forecast the next day’s conditional volatilities $\sigma_{1,t+1}$ and $\sigma_{2,t+1}$, applying either the fitted GARCH or GJR volatility specification.
+\item[i.] At the end of trading day $t$, observed returns $R_{1,t}$ and $R_{2,t}$ are used to forecast the next day’s conditional volatilities $\sigma_{1,t+1}$ and $\sigma_{2,t+1}$, applying either the fitted GARCH or GJR volatility specification.
 \item[ii.] Draw $M$ simulated probability pairs $(\check{u}_{1,t+1}, \check{u}_{2,t+1})$ from the fitted copula model.
 \item[iii.] Transform these simulated copula probabilities into standardized shocks using the inverse of the fitted marginal distributions: $\check{z}_{i,t+1} = F_i^{-1}(\check{u}_{i,t+1}), \quad i=1,2$.
 \item[iv.] Generate asset returns by scaling these shocks with the forecasted volatilities: $\check{R}_{i,t+1} = \sigma_{i,t+1} \check{z}_{i,t+1}, \quad i=1,2$.
@@ -273,6 +273,6 @@ Next, the statistical validity of the copula models is evaluated by examining th
     \label{5.11}
 \end{figure}
 
-To conclude, copula models offer two main advantages. First, they allow univariate models for individual asset returns to be estimated independently, leveraging a wide and accessible body of literature. This flexibility makes complex univariate modeling more manageable. Second, copula models effectively capture nonlinear dependencies between asset returns, which are especially important from a risk management perspective. Given the prominence of such nonlinear interactions in financial data, copula models represent a practical and powerful approach to multivariate modeling.
+To conclude, copula models offer two main advantages. First, they allow univariate models for individual asset returns to be estimated independently, leveraging a wide and accessible body of literature. This flexibility makes complex univariate modeling more manageable. Second, copula models effectively capture nonlinear dependencies between asset returns, which are especially important from a risk management perspective. At the same time, the approach considered in this chapter has important limitations. The static symmetric $t$-copula is unable to capture the time variation in cross-asset dependence documented earlier, and its symmetry prevents it from fully reproducing the asymmetric tail dependence suggested by the threshold correlation plots. Moreover, the resulting VaR forecasts still adapt too slowly to abrupt changes in volatility. Thus, while the copula framework represents a practical and powerful approach to multivariate modeling, more flexible dynamic and asymmetric copula specifications appear necessary for a fuller description of the dependence between financial assets.
 
 \newpage

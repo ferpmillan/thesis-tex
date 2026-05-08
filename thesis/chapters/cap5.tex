@@ -66,7 +66,7 @@ Taking logarithms simplifies the representation as follows:
 \]
 
 This decomposition demonstrates that constructing a complex multivariate density can be performed in two steps. First, individual marginal distributions $f_1(z_1), \ldots, f_n(z_n)$ are estimated independently using methods outlined in previous chapters. Second, the copula density function g$(u_1, \ldots, u_n)$ is chosen and estimated using the marginal probability values $u_i$ as input data.
-
+\newpage
 An important practical advantage of this method is that it simplifies parameter estimation: the parameters of the marginal distributions are estimated independently first, reducing the copula estimation to a separate, simpler second step. This property makes high-dimensional modeling feasible and efficient.
 
 While Sklar’s theorem is quite general, holding true for a broad class of multivariate distributions, it does not specify a functional form for $G(u_1, \ldots, u_n)$. Therefore, an appropriate copula model must be selected based on the application and underlying data.
@@ -81,7 +81,6 @@ G(u_1, u_2; \rho^*, d) = t_{(d, \rho^*)} \left( t^{-1}(u_1; d), \, t^{-1}(u_2; d
 where $t_{(d,\rho^*)}(\cdot)$ denotes the (non-standardized) symmetric multivariate $t$-distribution, $t^{-1}(u; d)$ is the inverse CDF of the (non-standardized) symmetric univariate $t$-distribution, and $\rho^*$ is the correlation parameter between $t^{-1}(u_1; d)$ and $t^{-1}(u_2; d)$, commonly known as the copula correlation.
 
 The corresponding probability density function or the bivariate $t$-copula is:
-
 \begin{equation}
 \begin{aligned}
 g(u_1, u_2; \rho^*, d) &= \frac{
@@ -171,7 +170,7 @@ Due to the complexity of the multivariate setup, closed-form expressions for the
 \item[iii.] Transform these simulated copula probabilities into standardized shocks using the inverse of the fitted marginal distributions: $\check{z}_{i,t+1} = F_i^{-1}(\check{u}_{i,t+1}), \quad i=1,2$.
 \item[iv.] Generate asset returns by scaling these shocks with the forecasted volatilities: $\check{R}_{i,t+1} = \sigma_{i,t+1} \check{z}_{i,t+1}, \quad i=1,2$.
 \end{enumerate}
-
+\newpage
 After simulating $M$ scenarios of next-day returns for each asset, the corresponding portfolio returns are easily computed based on the given portfolio weights. Risk measures, including portfolio VaR and ES, can then be derived from the simulated distribution of portfolio returns. Specifically, the portfolio VaR at the 2.5\% level is estimated as the empirical 2.5th percentile of the simulated portfolio returns. Consequently, at the end of each trading day, the VaR forecast and associated simulated density of the portfolio returns can be obtained.
 
 To further illustrate the simulation procedure, consider the case of a single asset. Figure~\ref{5.5} depicts the structure of the Monte Carlo algorithm used to simulate hypothetical next-day returns. Starting from the observed return at time $t$, the conditional variance forecast $\sigma^2_{t+1}$ is obtained using a GARCH or GJR specification. Next, draws are generated from the fitted copula to obtain simulated copula probabilities $\check{u}_{i,t+1}$, which are then transformed into shocks $\check{z}_{i,t+1}$ using the inverse of the marginal CDF. Finally, the shocks are scaled by the forecasted volatility to produce simulated returns $\check{R}_{i,t+1}$.
@@ -206,7 +205,7 @@ To further illustrate the simulation procedure, consider the case of a single as
 \caption{Simulation algorithm structure for next day's return.}
 \label{5.5}
 \end{figure}
-
+\newpage
 Once the density forecast and VaR for day $t+1$ have been generated, the accuracy of the copula-based model can be evaluated. This is done by comparing the realized return $R_{t+1}$ to the simulated distribution, analogous to a Probability Integral Transform (PIT) based now on the Monte Carlo density. The model’s effectiveness in risk management is assessed using VaR validation techniques similar to those applied in \hyperref[chap:4]{Chapter 4}.
 
 Figures \ref{5.6} and \ref{5.7} display the 2.5\% portfolio VaR along with the breaches observed during the test period. The breaches are almost identical across the two copula models, with the primary weakness again being the lack of independence between violations. Additionally, observe that the GJR-GJR copula model produces sharper increases in VaR following negative returns—reflecting its volatility specification—and thus adapts more quickly, though still not rapidly enough to capture the large negative returns at the onset of President Trump’s tariffs. Table \ref{5.3} summarizes the results of the Christoffersen tests for these models. From a risk management perspective, both copula models may offer an acceptable coverage, but are incapable to adapting quickly to drastic changes in the volatility regime. 

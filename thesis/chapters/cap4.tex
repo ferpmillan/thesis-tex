@@ -2,7 +2,7 @@
 \label{chap:4}
 
 The next step is to use the models constructed in the previous chapters for forecasting and to evaluate their performance. George E. P. Box is famously quoted as saying, \textit{“All models are wrong, but some are useful.”} In light of Box’s observation, the task now is to evaluate whether the models constructed are among those that are useful. The evaluation will proceed from two perspectives: a statistical perspective to assess model validity, and a risk management perspective to assess their practical usefulness.
-
+\newpage
 To recap and introduce the forecasting procedure, the model parameters were estimated using S\&P 500 log returns from January 2014 to December 2024. The fitted models were then used to forecast the one-day-ahead variance and return density from January to April 2025. To assess their usefulness in a risk management context, the one-day-ahead Value at Risk (VaR) and Expected Shortfall (ES) are computed based on the forecasts from the fitted models.\footnote{Following standard risk-management convention, VaR and ES are reported as positive quantities representing the magnitude of a potential loss, even though the underlying returns in the loss tail are negative. This is why the formal definitions introduced later in the chapter carry a leading minus sign in front of the return quantile and tail expectation.}
 
 As noted by \citeA{Christoffersen2012}, before using the variance model for forecasting, it is appropriate to subject the estimated model to diagnostic checks. In \hyperref[chap:1]{Chapter 1}, the dependence between squared returns was illustrated via the autocorrelation function (ACF) of squared returns. One of the primary objectives of volatility modeling is to eliminate this dependence structure by constructing a volatility measure, $\sigma^2_{t+1}$, such that the standardized squared returns, $\frac{R^2_{t+1}}{\sigma^2_{t+1}}$, exhibit no systematic autocorrelation patterns.
@@ -11,14 +11,14 @@ Figures~\ref{4.1} and~\ref{4.2} display the ACFs of the standardized squared ret
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.17]{../../plots/4.1.png} % Replace 
+    \includegraphics[scale=0.18]{../../plots/4.1.png} % Replace 
    \caption{Autocorrelation of squared returns over variance (2014-2024), GARCH(1,1).}
     \label{4.1}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.17]{../../plots/4.2.png} % Replace 
+    \includegraphics[scale=0.18]{../../plots/4.2.png} % Replace 
    \caption{Autocorrelation of squared returns over variance (2014-2024), GJR-GARCH(1,1).}
     \label{4.2}
 \end{figure}
@@ -55,20 +55,18 @@ GJR-GARCH(1,1) & 1.5673 \\
 The volatility models considered here were constructed using squared returns as the volatility proxy. As noted by \citeA{Christoffersen2012}, squared returns are an unbiased but potentially very noisy proxy for conditional variance. Alternatives include realized variance and range-based measures, which possess valuable predictive power and other desirable statistical properties. Readers interested in models based on alternative volatility proxies are referred to \citeA{Christoffersen2012} and the references therein. When using intraday-based proxies, it is important to account for market microstructure effects. \citeA{Tsay2010} and \citeA{Campbell1997} provide overviews of the microstructure of financial markets.
 
 A simple likelihood ratio (LR) test can also be used to assess whether the additional parameter in the GJR-GARCH model is statistically significant relative to the simpler GARCH(1,1) model. As noted by \citeA{Christoffersen2012}, the LR test provides a straightforward way to evaluate whether added parameters are statistically meaningful.
-
+\newpage
 Consider two nested models with log-likelihood values $L_0$ and $L_1$, where model 0 is a special case of model 1. The models can be compared using the likelihood ratio statistic:
-
 \begin{equation}
 \text{LR} = 2\left( \ln(L_1) - \ln(L_0) \right).
 \label{eq:4.2}
 \end{equation}
-
 Under the null hypothesis that the additional parameter(s) in model 1 are not significant, the LR statistic follows a chi-squared distribution with degrees of freedom equal to the number of parameters added. In this case, since GJR-GARCH(1,1) adds one parameter to GARCH(1,1), the degrees of freedom equal 1.
 
 Using the asymmetric $t$-distribution as the likelihood function, the LR test yields a $p$-value below 1\%, indicating little evidence in the data in favor of the null hypothesis. Thus, the additional parameter in the GJR-GARCH model is statistically significant.
 
 Forecasting begins by considering the first two models in Table~\ref{tab:3.1}, which combine the volatility models with the asymmetric $t$-distribution. These models forecast the entire density of the next day’s return, allowing for the computation of risk measures such as Value-at-Risk (VaR) and Expected Shortfall (ES). Following the definition in \citeA{Christoffersen2012}, VaR is a risk measure that answers the question: What is the loss that will only be exceeded $p \times 100\%$ of the time on the next trading day? In other words, VaR corresponds to a quantile of the distribution of tomorrow’s return.
-
+\newpage
 Under the specification $R_{t+1} = \sigma_{t+1} z_{t+1}$, with $z_{t+1} \sim \text{i.i.d. asyt}(d_1, d_2)$, the 1-day ahead $p$-level VaR can be computed as:
 \begin{equation}
 \text{VaR}_{t+1}^p = -\sigma_{t+1} \, F^{-1}_{\text{asyt}}(p; d_1, d_2),
@@ -100,7 +98,7 @@ where
 \end{aligned}
 \]
 and $Q=F^{-1}_{\text{asyt}}(p; d_1, d_2)$.
-
+\newpage
 According to \citeA{elliott201}, a density forecast—such as those produced by combining volatility models with the asymmetric $t$-distribution—should satisfy certain desirable properties. One of these is \textit{calibration}, which requires that if a density forecast assigns a specific probability to an event, then the event should occur with approximately that frequency over successive observations.
 
 This property can be assessed using Value-at-Risk. At the $p = 2.5\%$ level, a well-calibrated model should produce VaR breaches approximately 2.5\% of the time during the evaluation period. Figures~\ref{4.3} and~\ref{4.4} show the daily returns of the S\&P 500 from January to April 2025, along with the one-day-ahead 2.5\% VaR forecasts and the corresponding VaR breaches, assuming an asymmetric $t$-distribution.
@@ -123,18 +121,18 @@ With 81 observations in the test period, approximately two breaches would be exp
 
 To improve the coverage of VaR and account for model risk, sources of uncertainty such as parameter estimation, model specification, and error distribution can be incorporated. \citeA{mazzeu2018uncertainty} propose several approaches to address these issues in ARMA models, which can be extended to the volatility models considered here.
 
-As a simpler alternative, this chapter considers the use of Expected Shortfall (ES) as a way to stress the VaR forecast. Although ES is an expected value and does not correspond to a specific coverage level, it provides a more conservative risk measure by reflecting the average loss in the tail, thus functioning as a stressed version of VaR. Figures 4.5 and 4.6 display the 2.5\% Expected Shortfall for the previous models. It is worth noting that, among the cluster of consecutive breaches in early April in both Figures, only the first one also exceeds the ES forecast, illustrating how ES tempers the speed at which the conservative threshold is itself broken once volatility surges.
+As a simpler alternative, this chapter considers the use of Expected Shortfall (ES) as a way to stress the VaR forecast. Although ES is an expected value and does not correspond to a specific coverage level, it provides a more conservative risk measure by reflecting the average loss in the tail, thus functioning as a stressed version of VaR. Figures \ref{4.5} and \ref{4.6} display the 2.5\% Expected Shortfall for the previous models. It is worth noting that, among the cluster of consecutive breaches in early April in both Figures, only the first one also exceeds the ES forecast, illustrating how ES tempers the speed at which the conservative threshold is itself broken once volatility surges.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.18]{../../plots/4.5.png} % Replace 
+    \includegraphics[scale=0.175]{../../plots/4.5.png} % Replace 
    \caption{2.5\% Expected Shortfall forecast in the test period,  GARCH-Asyt.}
     \label{4.5}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.18]{../../plots/4.6.png} % Replace 
+    \includegraphics[scale=0.175]{../../plots/4.6.png} % Replace 
    \caption{2.5\% Expected Shortfall forecast in the test period,  GJR-Asyt.}
     \label{4.6}
 \end{figure}
@@ -157,6 +155,7 @@ Three distinct properties can be tested, beginning with unconditional coverage. 
 $\hat{\pi} = \frac{T_1}{T}$,
 where $T_1$ is the number of violations observed in $T$ total observations. Since the Bernoulli likelihood is maximized at the sample mean, $\hat{\pi}=T_1/T$ is the maximum likelihood estimator of $\pi$. The hypotheses are then stated as
 \[H_0:\pi=p \quad \text{vs.} \quad H_1:\pi\neq p.\]
+\newpage
 The likelihood ratio test statistic for unconditional coverage is given by $LR_{\text{uc}} = -2 \ln\left( \frac{L(p)}{L(\hat{\pi})} \right)$ which, under the null hypothesis, asymptotically follows a $\chi^2$ distribution with 1 degree of freedom.\footnote{This result follows from the general asymptotic theory of likelihood ratio tests: under standard regularity conditions, the likelihood ratio statistic converges in distribution to a chi-squared random variable with degrees of freedom equal to the difference in the number of free parameters under the null and alternative hypotheses. See \citeA{casella2002statistical} for a standard treatment.}
 
 Second, the independence of VaR violations can be assessed. Independence is critical; even if a VaR model achieves correct unconditional coverage, clustered violations would be problematic from a risk management perspective. Ideally, violations should occur randomly and independently, rather than grouping together in time. Therefore, testing for independence involves checking if the violations exhibit temporal clustering.
@@ -219,6 +218,7 @@ $LR_{\text{cc}}$   & Theoretical & 0.0523 & 0.1123 \\
 \label{tab:4.2}
 \end{table}
 
+\newpage
 These models exhibit weak performance: they fail to achieve acceptable coverage, and the violations do not seem independent. As shown in Figures~\ref{4.3} and~\ref{4.4}, two breaches occur in quick succession at the onset of President Trump’s tariff imposition, indicating slow adaptation to a sharp increase in volatility and resulting in clustered VaR violations.
 
 Attention now turns to evaluating the quality of the density forecasts. Focusing on the full forecasted return distribution offers the advantage of potentially increasing the power to reject misspecified risk models.
@@ -232,7 +232,6 @@ u_{t+1} = F_t(R_{t+1}).
 \citeA{diebold1998evaluating} show that if the risk model used to forecast the return distribution is correctly specified, then the sequence $\{u_{t+1}\}$ should be independently and identically distributed as \text{Uniform}(0,1). Intuitively, this means that if the forecasted distribution is correct, the PIT values should not be predictable or systematically biased.
 
 To assess the validity of the risk models considered here, the hypothesis of interest is:
-
 \[H_0: u_{t+1} \sim \text{i.i.d. Uniform}(0,1).\]
 
 \newpage
@@ -240,28 +239,25 @@ To assess the validity of the risk models considered here, the hypothesis of int
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.18]{../../plots/4.7.png} % Replace 
+    \includegraphics[scale=0.13]{../../plots/4.7.png} % Replace 
    \caption{ Histogram of PIT values, GARCH- Asyt.}
     \label{4.7}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.18]{../../plots/4.8.png} % Replace 
+    \includegraphics[scale=0.13]{../../plots/4.8.png} % Replace 
    \caption{ Histogram of PIT values, GJR- Asyt.}
     \label{4.8}
 \end{figure}
 
 While the histogram provides an intuitive diagnostic, it is not a formal statistical test. As noted by \citeA{Christoffersen2012}, testing the i.i.d. uniformity hypothesis is challenging due to the bounded support of the uniform distribution. To address this, \citeA{berkowitz2001testing} proposes transforming the PIT values to a standard normal scale and applying standard statistical tests to the transformed series:
-
 \begin{equation}
 \hat{z}_{t+1} = \Phi^{-1}(u_{t+1}),
 \label{eq:4.7}
 \end{equation}
 where $\Phi^{-1}(\cdot)$ denotes the inverse of the standard normal cumulative distribution function. The hypothesis of interest becomes:
-
 \[H_0: \hat{z}_{t+1} \sim \text{i.i.d. N}(0,1).\]
-
 To test this hypothesis, a Kolmogorov–Smirnov (KS) test can be applied to the GARCH-Asyt and GJR-Asyt models to assess the validity of the density forecasts. Figures~\ref{4.9} and~\ref{4.8} display the empirical cumulative distribution functions of the transformed series $\{\hat{z}_{t+1}\}$ plotted against the standard normal CDF, with the KS test statistics indicated.
 
 \begin{figure}[H]
@@ -279,9 +275,7 @@ To test this hypothesis, a Kolmogorov–Smirnov (KS) test can be applied to the 
 \end{figure}
 
 The resulting $p$-values for the GARCH-Asyt and GJR-Asyt models are 0.8512 and 0.7931, respectively. These values suggest that the hypothesis of normality cannot be rejected, supporting the validity of the models’ density forecasts. In addition, \citeA{berkowitz2001testing} proposes a likelihood ratio (LR) test to jointly assess normality and independence. Specifically, the hypothesis
-
 \[H_0: \hat{z}_{t+1} \sim \text{i.i.d. N}(0,1) \quad vs.\quad H_1: \hat{z}_{t+1} \sim \text{N}(\hat{\mu},\hat{\sigma}^2) \] 
-
 $\text{with autocorrelation }\rho$, can be tested via an LR statistic. The resulting $p$-values for the GARCH-Asyt and GJR-Asyt models are 0.3089 and 0.6577, respectively, indicating that the null hypothesis cannot be rejected.
 
 To formally compare the density forecasts during the test period, the Diebold–Mariano (DM) test introduced by \citeA{diebold1995comparing} is employed. This test compares the accuracy of two competing forecast models under a specified loss function, which in this case is the negative log-likelihood function of the actual returns given the forecasted densities. Using the log-likelihood as a scoring rule follows the suggestion of \citeA{elliott201} for evaluating density forecasts. 
@@ -289,10 +283,7 @@ To formally compare the density forecasts during the test period, the Diebold–
 The DM test statistic is defined as:
 \[
 \text{DM} = \frac{\bar{d}}{\hat{\sigma}_d/\sqrt{T}},\]
-
-where $\bar{d}$ is the average difference in log-likelihood scores, $d_t = \ell^{\text{(GARCH)}}(R_{t+1}|F_{t}) - \ell^{\text{(GJR)}}(R_{t+1}|F_{t})$,
-
-with $\ell^{(m)}(\cdot)$ and $\ell^{(n)}(\cdot)$ representing the log-likelihoods of the two competing models. Here, $\hat{\sigma}_d$ denotes the standard deviation of the series $\{d_t\}$, and $T$ is the sample size. Under the null hypothesis of equal forecast accuracy, the DM statistic follows a standard normal distribution. 
+where $\bar{d}$ is the average difference in log-likelihood scores, $d_t = \ell^{\text{(GARCH)}}(R_{t+1}|F_{t}) - \ell^{\text{(GJR)}}(R_{t+1}|F_{t})$, with $\ell^{(m)}(\cdot)$ and $\ell^{(n)}(\cdot)$ representing the log-likelihoods of the two competing models. Here, $\hat{\sigma}_d$ denotes the standard deviation of the series $\{d_t\}$, and $T$ is the sample size. Under the null hypothesis of equal forecast accuracy, the DM statistic follows a standard normal distribution. 
 
 After performing the test, the resulting $p$-value is 0.015, with a positive test statistic, suggesting that the GJR-Asyt density forecast provides significantly better forecasting performance compared to the GARCH-Asyt model. 
 
@@ -304,7 +295,7 @@ According to the Pickands–Balkema–de Haan theorem, for sufficiently large th
 \[
 \frac{F(y) - F(u)}{1 - F(u)} \approx G_{u, \xi,\beta}(y) \quad \text{for } y>u,
 \]
-
+\newpage
 where $G_{u, \xi, \beta}(y)$ denotes the cumulative distribution function (CDF) of the generalized Pareto distribution (GPD). Approximating the CDF $F(u)$ of the standardized returns using the empirical distribution, we have:
 \[
 \hat{F}(u) = \frac{T - N_{u}}{T},
@@ -333,7 +324,7 @@ Following similar logic, the Expected Shortfall (ES) for the GARCH-EVT and GJR-E
 \end{equation}
 
 where $\text{ES}_{z,t+1}^{p}= \frac{\text{VaR}_{z,t+1}^{p}}{1 - \xi} + \frac{\beta - \xi u}{1 - \xi}.$
-
+\newpage 
 Figures~\ref{4.11} and~\ref{4.12} display the forecasted 2.5\% VaR, ES, and the observed VaR breaches during the test period. Notice that these models, which incorporate extreme value theory, yield a more conservative (larger magnitude) VaR and consequently exhibit fewer breaches compared to the asymmetric $t$-distribution models. As with the asymmetric-$t$ models, among the cluster of consecutive breaches in early April only the first one also exceeds the ES forecast, again illustrating how ES tempers the speed at which the conservative threshold is itself broken once volatility surges.
 
 \begin{figure}[H]
@@ -395,7 +386,7 @@ Expected   & 4.17 & 2.10 & 6.28 \\
 \end{table}
 
 All four specifications exceed their expected number of breaches in both sub-periods, but the deterioration is markedly sharper in September--December. The GARCH-EVT model is essentially well calibrated in the first window (4 observed against 4.17 expected) yet records more than twice the expected breaches in the second (5 against 2.10); the remaining models show an analogous widening of the gap. Since the September--December window contains roughly half as many trading days as the first, the corresponding rise in breach frequency is even more pronounced than the raw counts suggest. This pattern indicates that the four models are unable to adapt quickly enough to the abrupt regime change in September--October 2008.
-
+\newpage
 Up to this point, only univariate models have been considered. While useful, such models may be insufficient for assessing the risk of a portfolio of assets, for which a multivariate framework is required. The next chapter adopts a copula-based approach to model dependence among assets and to produce multivariate forecasts. The main motivation for this choice is that copulas integrate naturally with the univariate models developed so far.
 
 \begin{figure}[H]

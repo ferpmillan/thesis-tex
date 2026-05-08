@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1778129084 "main.aux" "main.bbl" "main" 1778173796 0
+["bibtex main"] 1778208975 "main.aux" "main.bbl" "main" 1778209089 0
   "../../biblo.bib" 1775362907 12072 868a0a49a3a4edf7e5e144d0c79b3823 ""
   "/usr/local/texlive/2023/texmf-dist/bibtex/bst/apacite/apacite.bst" 1374530685 141073 9d7b79dbf9d91133318126032cff8c27 ""
-  "main.aux" 1778173796 31584 c686c4b70fed68cabff73045ac1a2d03 "pdflatex"
+  "main.aux" 1778209089 31583 9311b96a73f28326f47e0832f0a0a45a "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1778173791 "/Users/fernandoperezmillan/Desktop/tesis tex/thesis/main/main.tex" "main.pdf" "main" 1778173796 0
+["pdflatex"] 1778209084 "/Users/fernandoperezmillan/Desktop/tesis tex/thesis/main/main.tex" "main.pdf" "main" 1778209089 0
   "../../biblo.bib" 1775362907 12072 868a0a49a3a4edf7e5e144d0c79b3823 ""
   "../../logo-ITAM.png" 1778173128 23096 969ff93efc09397ccda49ff41ee9799c ""
   "../../plots/1.1.png" 1771679170 93614 44ac96c06319c92b554bad0e387137ef ""
@@ -57,13 +57,13 @@
   "../../plots/5.8.png" 1771679170 53812 ff289578ce1a75c8cb2d6b4a2b33b35c ""
   "../../plots/5.9.png" 1771679170 53545 e82299ce6bc0f78d327f75249f944492 ""
   "../../plots/Rlogo.png" 1771679170 48148 909182496548f832840b6c43ef4fb5f7 ""
-  "../chapters/cap1.tex" 1778116911 9074 a23b2e3e57901757e72320476502f526 ""
-  "../chapters/cap2.tex" 1778172455 12707 014188796aba378e51862070bc1e3d5b ""
-  "../chapters/cap3.tex" 1778120267 19036 0501163c23720ecc4727caa7f228a80d ""
-  "../chapters/cap4.tex" 1778129382 32834 b276083773b2001a8831175bf6206297 ""
-  "../chapters/cap5.tex" 1778120273 22863 45744c5ba33776bd8fa852673daf8dcb ""
-  "../chapters/conc.tex" 1778120278 4796 e424cd353876acc0c114079d909b3156 ""
-  "../chapters/intro.tex" 1778173790 2934 4d9aec6a065e75ec556e0a1d286d2145 ""
+  "../chapters/cap1.tex" 1778204140 9075 12657a7649e400ccf30d112e0f208a0d ""
+  "../chapters/cap2.tex" 1778204869 12698 2173ae9aa7557ee1dfc151724be8ca4a ""
+  "../chapters/cap3.tex" 1778205095 19055 bd71b627fe6427409291787e1a5e7e8e ""
+  "../chapters/cap4.tex" 1778208760 32913 8328bc782864a510fa5967c3cee383e4 ""
+  "../chapters/cap5.tex" 1778208991 22886 9e7f887b8fb65902c7de2d5370cb3dab ""
+  "../chapters/conc.tex" 1778209084 4765 0a49532631d26c0784a66a32971d402a ""
+  "../chapters/intro.tex" 1778208805 2942 5b7d6cc92001b07c72ec2e8620a9dd00 ""
   "/Users/fernandoperezmillan/Desktop/tesis tex/thesis/main/main.tex" 1778173174 7332 133c3054b190d7bc9a76356b97f35dab ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -293,11 +293,11 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1709148726 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1709148686 7883464 e19e74aad0c7962b11d64c8540c9fd7d ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "main.aux" 1778173796 31584 c686c4b70fed68cabff73045ac1a2d03 "pdflatex"
-  "main.bbl" 1778129084 24719 0f64ab7359422d3d6d77a809111f3988 "bibtex main"
-  "main.out" 1778173796 1136 023ffec50cbaa22edf5dbc9f2a90d84f "pdflatex"
+  "main.aux" 1778209089 31583 9311b96a73f28326f47e0832f0a0a45a "pdflatex"
+  "main.bbl" 1778208975 24719 0f64ab7359422d3d6d77a809111f3988 "bibtex main"
+  "main.out" 1778209089 1136 023ffec50cbaa22edf5dbc9f2a90d84f "pdflatex"
   "main.tex" 1778173174 7332 133c3054b190d7bc9a76356b97f35dab ""
-  "main.toc" 1778173796 596 32387d579513656db9aeceb9d520ccaf "pdflatex"
+  "main.toc" 1778209089 596 1826e92c480245bcc338da9cc8e36a90 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

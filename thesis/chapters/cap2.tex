@@ -38,7 +38,6 @@ with $ \omega > 0,\ \alpha \geq 0,\ \beta \geq 0,\ \alpha + \beta < 1$. These re
     \sigma^2_{t+1} = \omega + \alpha R^2_{t} + \alpha \theta I_{t} R^2_{t} + \beta\sigma^2_{t}
     \label{eq:2.2}
 \end{equation}
-
 where $I_t=\mathbf{1}\{R_t<0\}$. Here, $\omega>0$, $\alpha\geq0$, $\theta\geq0$, and $\beta\geq0$ guarantee positivity of the conditional variance, and $\alpha\left(1+\frac{\theta}{2}\right)+\beta<1$ ensures the existence of a finite long-run variance under symmetric innovations. A positive $\theta$ captures the leverage effect.
 \newpage
 
@@ -117,7 +116,7 @@ For the GJR-GARCH(1,1):
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.17]{../../plots/2.2.png} % Replace 
+    \includegraphics[scale=0.16]{../../plots/2.2.png} % Replace 
     \caption{Squared S\&P 500 returns with GARCH(1,1) variance parameters estimated using
 QMLE.}
     \label{2.2}
@@ -126,7 +125,7 @@ QMLE.}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.17]{../../plots/2.3.png} % Replace 
+    \includegraphics[scale=0.165]{../../plots/2.3.png} % Replace 
     \caption{Squared S\&P 500 returns with GJR-GARCH(1,1) variance parameters estimated using
 QMLE.}
     \label{2.3}
@@ -138,6 +137,5 @@ Observe that $\alpha+\beta \approx 1$ in the fitted GARCH(1,1), and $\alpha+\bet
 
 Another important theoretical feature of GARCH models is their ability to generate return distributions with heavier tails than the normal distribution, even when normality is assumed for $z_{t+1}$. This means the volatility model itself contributes to capturing the excess kurtosis commonly observed in financial returns. \citeA{Bai2003} derive the kurtosis of GARCH models and show that, provided the kurtosis exists, the distribution of returns under a GARCH process can indeed exhibit heavier tails than the normal distribution.
 
-\newpage
 Having analyzed return volatility, the next step is to properly model $z_{t+1}$, the standardized return or shock—keeping in mind the ultimate goal: to capture and replicate the empirical behavior of returns. The evaluation of the volatility models will be deferred to \hyperref[chap:4]{Chapter 4}, once the complete model for the return $R_{t+1}$ has been specified.
 \newpage

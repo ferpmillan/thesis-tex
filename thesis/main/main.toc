@@ -1,9 +1,9 @@
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{Introduction}{1}{chapter*.4}%
 \contentsline {chapter}{\numberline {1}Empirical Characteristics of Returns}{3}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Volatility Modeling}{12}{chapter.2}%
-\contentsline {chapter}{\numberline {3}Shock Modeling}{22}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Forecasting and Evaluation}{40}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Copula Multivariate Model}{68}{chapter.5}%
-\contentsline {chapter}{Conclusion}{86}{chapter*.60}%
-\contentsline {chapter}{References}{89}{chapter*.61}%
+\contentsline {chapter}{\numberline {2}Volatility Modeling}{11}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Shock Modeling}{20}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Forecasting and Evaluation}{38}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Copula Multivariate Model}{66}{chapter.5}%
+\contentsline {chapter}{Conclusion}{84}{chapter*.60}%
+\contentsline {chapter}{References}{87}{chapter*.61}%

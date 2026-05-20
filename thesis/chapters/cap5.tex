@@ -37,7 +37,7 @@ Figure~\ref{5.2} displays the threshold correlation plot between the S\&P 500 re
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.18]{../../plots/5.2.png} % Replace 
+    \includegraphics[scale=0.43]{../../plots/5.2.png} % Replace 
    \caption{Threshold correlation of GARCH(1,1) standardized returns (training period).}
     \label{5.2}
 \end{figure}
@@ -147,14 +147,14 @@ GJR-GJR & $-0.2088$ & 4.8304  \\
 Using the estimated copula model, it is possible to simulate data and examine whether the model-implied threshold correlations match the empirical pattern observed in Figure \ref{5.2}. Figures~\ref{5.3} and \ref{5.4} display the simulated threshold correlations obtained from the GARCH-GARCH and GJR-GJR copula models, respectively, alongside the empirical threshold correlations derived from the standardized returns. The $t$-copula successfully reasonably replicates the increasing correlation observed in the tails. However, it is worth mentioning that the standardized returns exhibit slightly higher correlation in the right tail, a subtle feature the symmetric $t$-copula cannot fully replicate.
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.17]{../../plots/5.3.png} % Replace 
+    \includegraphics[scale=0.43]{../../plots/5.3.png} % Replace 
    \caption{Empirical and simulated threshold correlations of GARCH-GARCH copula.}
     \label{5.3}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.17]{../../plots/5.4.png} % Replace 
+    \includegraphics[scale=0.43]{../../plots/5.4.png} % Replace 
    \caption{Empirical and simulated threshold correlations of GJR-GJR copula.}
     \label{5.4}
 \end{figure}

@@ -85,23 +85,7 @@
 
 % ---- FORMATO DE LAS PÁGINAS ----
 %\usepackage[a4paper, width=165mm, top=20mm, bottom = 20mm]{geometry}
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-%\fancypagestyle{firststyle}{
-   %\fancyhf{}
-   %\fancyfoot[R]{\footnotesize \thepage}
-   %\renewcommand{\headrulewidth}{0pt}
-%}
-% Para el resto del documento.
-\fancyhf{}
-\lhead{\footnotesize V0.2}
-\chead{\footnotesize \textsc{}}
-\rhead{\footnotesize \thepage}
-%\lfoot{\footnotesize F. Pérez Millán}
-%\rfoot{\footnotesize \thepage}
 
-\renewcommand{\headrulewidth}{0.4pt}
-%\renewcommand{\footrulewidth}{0.4pt}
 \setlength{\headheight}{15pt}
 
 \setlength{\parskip}{1em}
@@ -142,6 +126,23 @@ Fernando Pérez Millán, 189380}
 
 \newcommand{\Rlogo}{\protect\includegraphics[height=1.8ex,keepaspectratio]{\rlogopath}}
 
+% --- Páginas a la derecha (impresión a doble cara) ---
+% Contamos las páginas FÍSICAS realmente impresas (inmune a los reinicios
+% de numeración de \frontmatter y \mainmatter) y redefinimos
+% \cleardoublepage para que el contenido siguiente caiga siempre en una
+% página derecha (recto), insertando una página en blanco sólo si hace
+% falta. Como \chapter, \frontmatter, \tableofcontents y \mainmatter
+% llaman a \cleardoublepage, cada sección y capítulo arranca a la derecha.
+\usepackage{atbegshi}
+\newcounter{physpage}
+\AtBeginShipout{\stepcounter{physpage}}
+\renewcommand{\cleardoublepage}{%
+  \clearpage
+  \ifodd\value{physpage}%
+    \thispagestyle{empty}\mbox{}\clearpage
+  \fi
+}
+
 \begin{document}
 
 %----------------------------------------------------------------------------------------
@@ -164,13 +165,13 @@ Fernando Pérez Millán, 189380}
 
 % Pueden modificar el tamaño del logo cambiando la escala
 
-\textbf{\LARGE Modelado de rendimientos financieros: volatilidad condicional, colas pesadas y dependencia multivariada}\\[2em]
+\textbf{\LARGE MODELADO DE RENDIMIENTOS FINANCIEROS: VOLATILIDAD CONDICIONAL, COLAS PESADAS Y DEPENDENCIA MULTIVARIADA}\\[2em]
 
 \textsc{\large Tesis}\\[1em]
 
 \textsc{\large que para obtener el título de}\\[1em]
 
-\textsc{\LARGE Licenciado en Actuaría y Dirección Financiera}\\[1em]
+\textsc{\LARGE Licenciado en Dirección Financiera}\\[1em]
 
 \textsc{\large Presenta}\\[1em]
 
@@ -188,6 +189,8 @@ Fernando Pérez Millán, 189380}
 \textsc{Ciudad de México \hspace*{\fill} 2026}
 
 \end{titlepage}
+
+\cleardoublepage
 
 %----------------------------------------------------------------------------------------
 %	DECLARACIÓN
@@ -223,23 +226,13 @@ Fernando Pérez Millán, 189380}
 %----------------------------------------------------------------------------------------
 %	DEDICATORIA
 %----------------------------------------------------------------------------------------
-
 \pagestyle{plain}
 \frontmatter
-
-\chapter*{}
 \begin{flushright}
 \textit{A Fátima.}
 \end{flushright}
 
-
-\pagestyle{fancy}
-%\maketitle
-%\thispagestyle{firststyle}
-%\vfill
-\newpage
 \tableofcontents
-\newpage
 \mainmatter
 \input{../chapters/intro}
 \newpage

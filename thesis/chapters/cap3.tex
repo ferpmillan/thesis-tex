@@ -95,6 +95,7 @@ Once the parameters of the model have been estimated (the values of $d_1$ and $d
 
 The Q–Q plots shown in Figures~\ref{3.7} and~\ref{3.8} further confirm that the asymmetric $t$-distribution provides a better fit to the standardized returns than the normal distribution. Nevertheless, the left tail of the empirical distribution remains inadequately modeled, exhibiting significantly heavier tails than those captured by the asymmetric $t$-distribution. Additionally, the comparisons between the empirical cumulative distribution functions (CDF) and their theoretical counterparts in Figures~\ref{3.9} and~\ref{3.10} reinforce the conclusion that the asymmetric $t$-distribution performs reasonably well in fitting the standardized returns.
 
+\newpage
 Parametric models attempting to fit the full distribution are inevitably influenced by the high density of observations around the center, which may reduce their accuracy in capturing extreme values. For risk management, this is particularly concerning, as it risks underestimating the severity and likelihood of extreme negative returns. The inadequately modeled left tail demands special attention; thus, extreme value theory, which explicitly targets tail behavior, is introduced in the next approach. 
 
 \begin{figure}[H]
@@ -163,24 +164,26 @@ and where the conditional variance $\sigma^2_{t+1}$ follows either a GARCH(1,1) 
 
 For parameter estimation, the approach of \citeA{mcneil2000estimation} is followed. In the first step, the parameters of the volatility specification are estimated using quasi-maximum likelihood. In the second step, the parameters of the GPD are estimated via maximum likelihood using the standardized returns. \citeA{Christoffersen2012} discusses alternative estimation methods, including a semiparametric approach that is popular in the literature: the Hill estimator for the tail index $\xi$.
 
-Before estimating the model, a threshold $u$ must be selected. As noted by \citeA{Christoffersen2012}, the choice of $u$ involves a trade-off between bias and variance: a high threshold is supported by extreme value theory but may result in too few observations, increasing variance; conversely, a low threshold provides more data but may lead to overfitting and to model misspecification by fitting observations outside the tail region. Discussions on the selection of $u$ can be found in \citeA{Tsay2010} and \citeA{coles2001}. \footnote{\citeA{Christoffersen2012} also suggests selecting $u$ by identifying the point at which the tail begins to depart from normality in the QQ plot of standardized residuals, and recommends using at least 50 observations in the tail fit, based on evidence from simulation studies.}
+\newpage
+Before estimating the model, a threshold $u$ must be selected. As noted by \citeA{Christoffersen2012}, the choice of $u$ involves a trade-off between bias and variance: a high threshold is supported by extreme value theory but may result in too few observations, increasing variance; conversely, a low threshold provides more data but may lead to overfitting and to model misspecification by fitting observations outside the tail region. Discussions on the selection of $u$ can be found in \citeA{Tsay2010} and \citeA{coles2001}\footnote{\citeA{Christoffersen2012} also suggests selecting $u$ by identifying the point at which the tail begins to depart from normality in the QQ plot of standardized residuals, and recommends using at least 50 observations in the tail fit, based on evidence from simulation studies.}.
 
 Fortunately, a useful property of the generalized Pareto distribution can guide this choice. For any $u > u_0$, where $u_0$ is a threshold above which the GPD provides a valid approximation, the mean excess function $e(u) = \mathbb{E}[y - u \mid y > u]$ is linear in $u$. Thus, plotting the empirical mean excess function over a range of threshold values allows identification of the region where the function becomes approximately linear—indicating a suitable choice for $u$. Figures~\ref{3.11} and~\ref{3.12} suggest that choosing $u \geq 1.8$ is reasonable for both sets of standardized returns.
 
-\begin{figure}[H]
+\begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.18]{../../plots/3.11.png} % Replace 
+    \includegraphics[scale=0.18]{../../plots/3.11.png} % Replace
     \caption{Mean excess function $e(u)$, GARCH(1,1).}
     \label{3.11}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.18]{../../plots/3.12.png} % Replace 
+    \includegraphics[scale=0.18]{../../plots/3.12.png} % Replace
     \caption{Mean excess function $e(u)$, GJR-GARCH(1,1).}
     \label{3.12}
 \end{figure}
 
+\newpage
 Setting $u = 1.8$, the model in Equation~\eqref{eq:3.4} can be estimated (with the resulting GPD parameters $\beta_{\text{GPD}}$ and $\xi$ for both fits reported in Table~\ref{tab:3.1}), and the goodness-of-fit can be assessed visually. Figures~\ref{3.13} and~\ref{3.14} show that, for both sets of standardized returns—GARCH(1,1) and GJR-GARCH(1,1), respectively—the GPD provides a reasonable fit to the left tail.\footnote{The plots show the quantiles of the excesses over the threshold, along with the fitted GPD starting at zero, to aid in the visual assessment.}  However, some nuances remain, as the model’s ability to capture the tail behavior tends to diminish further into the extreme tail. To complement the visual assessment, Figures~\ref{3.15} and~\ref{3.16} display the empirical and theoretical cumulative distribution functions for both sets of standardized returns.
 
 \begin{figure}[H]

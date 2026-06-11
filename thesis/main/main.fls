@@ -944,17 +944,6 @@ INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/apacite/apacite.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/apacite/apacite.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/apacite/apacite.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/tools/bm.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/tools/bm.sty
@@ -1057,6 +1046,7 @@ INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/caption/ltcaption.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/caption/ltcaption.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/caption/ltcaption.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/caption/ltcaption.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/atbegshi/atbegshi.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
@@ -1166,9 +1156,9 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT ./main.toc
 INPUT main.toc
 INPUT main.toc
@@ -1185,8 +1175,6 @@ INPUT ../../plots/Rlogo.png
 INPUT ../../plots/Rlogo.png
 INPUT ../../plots/Rlogo.png
 INPUT ../../plots/Rlogo.png
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
 INPUT ../chapters/cap1.tex
 INPUT ../chapters/cap1.tex
 INPUT ../chapters/cap1.tex
@@ -1207,6 +1195,7 @@ INPUT ../../plots/1.2.png
 INPUT ../../plots/1.2.png
 INPUT ../../plots/1.2.png
 INPUT ../../plots/1.2.png
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex9.tfm

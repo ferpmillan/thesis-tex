@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1781138693 "main.aux" "main.bbl" "main" 1781138699 0
+["bibtex main"] 1781235477 "main.aux" "main.bbl" "main" 1781235488 0
   "../../biblo.bib" 1775362907 12072 868a0a49a3a4edf7e5e144d0c79b3823 ""
   "/usr/local/texlive/2023/texmf-dist/bibtex/bst/apacite/apacite.bst" 1374530685 141073 9d7b79dbf9d91133318126032cff8c27 ""
-  "main.aux" 1781138698 31582 70d4297ba769d9ee315fda4d0e491713 "pdflatex"
+  "main.aux" 1781235488 31582 70d4297ba769d9ee315fda4d0e491713 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1781138693 "/Users/fernandoperezmillan/Desktop/tesis tex/thesis/main/main.tex" "main.pdf" "main" 1781138699 0
+["pdflatex"] 1781235483 "/Users/fernandoperezmillan/Desktop/tesis tex/thesis/main/main.tex" "main.pdf" "main" 1781235488 0
   "../../biblo.bib" 1775362907 12072 868a0a49a3a4edf7e5e144d0c79b3823 ""
   "../../logo-ITAM.png" 1778173128 23096 969ff93efc09397ccda49ff41ee9799c ""
   "../../plots/1.1.png" 1771679170 93614 44ac96c06319c92b554bad0e387137ef ""
@@ -63,7 +63,7 @@
   "../chapters/cap4.tex" 1778208760 32913 8328bc782864a510fa5967c3cee383e4 ""
   "../chapters/cap5.tex" 1779312249 22886 32a3a943aa723172b4ba0a6630a542bb ""
   "../chapters/conc.tex" 1778209461 4765 0a49532631d26c0784a66a32971d402a ""
-  "../chapters/intro.tex" 1778208805 2942 5b7d6cc92001b07c72ec2e8620a9dd00 ""
+  "../chapters/intro.tex" 1781235478 3203 5ea1b0f80a56421696aa6515f78a67b4 ""
   "/Users/fernandoperezmillan/Desktop/tesis tex/thesis/main/main.tex" 1781137830 7510 c1c2d8a3ebe7772cdcb2aaedd9e00269 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -292,11 +292,11 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1709148726 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1709148686 7883464 e19e74aad0c7962b11d64c8540c9fd7d ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "main.aux" 1781138698 31582 70d4297ba769d9ee315fda4d0e491713 "pdflatex"
-  "main.bbl" 1781138693 24719 0f64ab7359422d3d6d77a809111f3988 "bibtex main"
-  "main.out" 1781138698 1136 5e7ff8f9c7fd8ce08cc24870b228628e "pdflatex"
+  "main.aux" 1781235488 31582 70d4297ba769d9ee315fda4d0e491713 "pdflatex"
+  "main.bbl" 1781235477 24719 0f64ab7359422d3d6d77a809111f3988 "bibtex main"
+  "main.out" 1781235488 1136 5e7ff8f9c7fd8ce08cc24870b228628e "pdflatex"
   "main.tex" 1781137830 7510 c1c2d8a3ebe7772cdcb2aaedd9e00269 ""
-  "main.toc" 1781138698 596 23fd1e36529dbaface873db4df0c74d7 "pdflatex"
+  "main.toc" 1781235488 596 23fd1e36529dbaface873db4df0c74d7 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

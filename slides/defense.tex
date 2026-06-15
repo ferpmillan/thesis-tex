@@ -51,7 +51,7 @@
 }
 
 \title[Thesis]{Modelado de rendimientos financieros:\\volatilidad condicional, colas pesadas y dependencia multivariada}
-\author[F. P\'erez Mill\'an]{Fernando P\'erez Mill\'an}
+\author[F. P\'erez Mill\'an]{Fernando P\'erez Mill\'an\\[0.5em]\small Asesor: Dr.~Carlos Vladimir Rodr\'iguez Caballero}
 \institute[]{Instituto Tecnol\'ogico Aut\'onomo de M\'exico}
 \date{}
 
@@ -67,7 +67,7 @@
 
 \section{Objective and Data}
 \begin{frame}{Objective}
-\begin{itemize}
+\begin{itemize}\setlength{\itemsep}{1em}
 \item Provide a coherent, step-by-step \textbf{recipe} for financial return modeling at the undergraduate level.
 \item Follow one consistent path: empirical characterization, univariate modeling, forecast evaluation, and multivariate extension.
 \item Keep a dual lens throughout:
@@ -78,26 +78,26 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Data and Forecasting Setup}
+\begin{frame}{Data}
 \begin{block}{Data (Training set)}
 \begin{itemize}
 \item Daily returns: S\&P 500 and 10-year U.S. Treasury note index (SPBDU1BT).
 \item Sample used across chapters: Jan 2014--Dec 2024.
 \end{itemize}
 \end{block}
-\begin{block}{Forecast exercise (Test set)}
+\vspace{1.5em}
+\begin{block}{Forecast (Test set)}
 \begin{itemize}
 \item Out-of-sample window: Jan 2025--Apr 2025 (81 observations).
-\item 1-day-ahead density, VaR (2.5\%), and ES forecasts.
+\item Forecasts: 1-day-ahead density, VaR and ES (2.5\%).
 \item Tests: Christoffersen tests, PIT diagnostics, KS, and DM comparison.
 \end{itemize}
 \end{block}
 \end{frame}
 
 \section{Empirical Characteristics of Returns}
-\begin{frame}{Modeling Objective}
-\begin{itemize}
-\item Returns are modeled empirically, not only theoretically.
+\begin{frame}{Empirical Characteristics of Returns}
+\begin{itemize}\setlength{\itemsep}{1em}
 \item Stylized facts on S\&P 500 daily returns (2014--2024):
 \begin{itemize}
 \item Near-zero autocorrelation in raw returns.
@@ -141,7 +141,14 @@
 \includegraphics[width=0.94\linewidth]{1.4.png}
 \end{columns}
 \vspace{0.5em}
-\begin{block}{Baseline return model}
+\begin{itemize}
+\item The empirical distribution exhibits heavier tails than the normal distribution and asymmetry.
+\item The correlation among assets appears to vary over time.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Baseline Return Model}
+\begin{block}{Return model}
 \[
 R_{t+1}=\sigma_{t+1}z_{t+1}, \qquad z_{t+1}\sim \text{i.i.d. }D(0,1)
 \]
@@ -149,7 +156,7 @@ R_{t+1}=\sigma_{t+1}z_{t+1}, \qquad z_{t+1}\sim \text{i.i.d. }D(0,1)
 \end{frame}
 
 \section{Volatility Modeling}
-\begin{frame}{Volatility Specifications}
+\begin{frame}{Volatility Modeling}
 \begin{itemize}
 \item Goal: model conditional variance \(\sigma_{t+1}^2\).
 \item Ljung-Box on \(R_{t+1}^2\): strong evidence of conditional heteroskedasticity.
@@ -165,9 +172,33 @@ R_{t+1}=\sigma_{t+1}z_{t+1}, \qquad z_{t+1}\sim \text{i.i.d. }D(0,1)
 \]
 \begin{itemize}
 \item Indicator variable: \(I_t=\mathbf{1}\{R_t<0\}\).
+\begin{itemize}
 \item If \(R_t<0\), \(I_t=1\) and shock impact is \(\alpha(1+\theta)R_t^2\).
 \item If \(R_t\ge 0\), \(I_t=0\) and shock impact is \(\alpha R_t^2\).
+\end{itemize}
 \item GJR term (\(\theta>0\)) captures asymmetric (leverage) response.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Parameter Estimation: QMLE}
+\small
+\begin{itemize}
+\item Parameters: \(\vartheta=(\omega,\alpha,\beta)\) for GARCH(1,1), \(\vartheta=(\omega,\alpha,\beta,\theta)\) for GJR-GARCH(1,1).
+\item \textbf{Quasi}-maximum likelihood: apply the normal MLE even if \(z_{t+1}\) is not normal (consistent estimates under correctly specified mean and variance).
+\end{itemize}
+Given a sample \(\{R_t\}_{t=1}^T\), the conditional log-likelihood under normality is
+\[
+\ell(\vartheta)
+=-\frac{1}{2}\sum_{t=1}^T
+\left[\log(2\pi)+\log(\sigma_t^2)+\frac{R_t^2}{\sigma_t^2}\right].
+\]
+The QMLE estimator solves
+\[
+\hat{\vartheta}=\arg\max_{\vartheta\in\Theta}\,\ell(\vartheta),
+\]
+subject to positivity and finite long-run variance restrictions.
+\begin{itemize}
+\item No closed-form maximizer: solved numerically, each \(\vartheta\) generating a full path \(\{\sigma_t^2\}_{t=1}^T\) via the volatility recursion.
 \end{itemize}
 \end{frame}
 
@@ -201,7 +232,7 @@ GJR-GARCH(1,1) & 1.5673 \\
 \bottomrule
 \end{tabular}
 \end{table}
-\begin{itemize}
+\begin{itemize} \setlength{\itemsep}{1em}
 \item LR test for extra GJR parameter: \(p<1\%\) (\citeA{Christoffersen2012} framework).
 \item Both models absorb squared-return dependence.
 \item Persistence is close to one, consistent with financial volatility behavior.
@@ -230,7 +261,7 @@ GJR-GARCH(1,1) & 1.5673 \\
 \[
 R_{t+1}=\sigma_{t+1}z_{t+1},\qquad z_{t+1}\sim \text{i.i.d. asyt}(d_1,d_2)
 \]
-\begin{itemize}
+\begin{itemize} \setlength{\itemsep}{1em}
 \item Provides a skewed extension of the Student's t-distribution, enabling the modeling of both kurtosis and skewness observed in standardized returns.
 \item Parameters estimated after volatility QMLE step.
 \item Better center/tail fit than normal, but left tail remains underfit.
@@ -260,7 +291,7 @@ R_{t+1}=\sigma_{t+1}z_{t+1},\qquad z_{t+1}\sim \text{i.i.d. asyt}(d_1,d_2)
 \[
 f(y)=\frac{1}{\beta}\left(1+\frac{\xi(y-u)}{\beta}\right)^{-\left(1+\frac{1}{\xi}\right)},\quad y>u
 \]
-\begin{itemize}
+\begin{itemize} \setlength{\itemsep}{1em}
 \item Focuses explicitly on left-tail risk, the critical region for VaR/ES.
 \item Threshold chosen through mean excess function linearity.
 \end{itemize}
@@ -303,14 +334,14 @@ GJR-EVT & 0.054 & 0.795 & 4.62 & \(\beta_{\text{GPD}}=0.621,\ \xi=0.206\) \\
 
 \section{Forecasting and Evaluation}
 \begin{frame}{Forecasting and Evaluation Framework}
-\begin{itemize}
+\begin{itemize} \setlength{\itemsep}{1em}
 \item Forecast horizon: 1 day ahead, test window Jan--Apr 2025.
 \item Outputs: \(\sigma^2_{t+1}\), density forecast, VaR\(_{2.5\%}\), ES\(_{2.5\%}\).
 \item Evaluation blocks:
 \begin{itemize}
 \item Volatility diagnostics (ACF of standardized squares, QLIKE, LR).
 \item Risk diagnostics (Christoffersen \(LR_{\text{uc}}, LR_{\text{ind}}, LR_{\text{cc}}\)).
-\item Density diagnostics (PIT histograms, KS on \(\Phi^{-1}(u_{t+1})\), Berkowitz, DM).
+\item Density diagnostics (PIT histograms, KS , Berkowitz, DM).
 \end{itemize}
 \end{itemize}
 \end{frame}
@@ -342,7 +373,7 @@ GJR-EVT & 0.054 & 0.795 & 4.62 & \(\beta_{\text{GPD}}=0.621,\ \xi=0.206\) \\
 \text{VaR}_{t+1}^{p}=-\sigma_{t+1}F^{-1}_{\text{asyt}}(p;d_1,d_2),\qquad
 \text{ES}_{t+1}^{p}=-\sigma_{t+1}\text{ES}_{\text{asyt}}(p)
 \]
-\begin{itemize}
+\begin{itemize} \setlength{\itemsep}{1em}
 \item Full-density models provide direct VaR and ES forecasts.
 \item Calibration check at \(p=2.5\%\): expected violations about 2 in 81 days.
 \end{itemize}
@@ -363,7 +394,6 @@ GJR-EVT & 0.054 & 0.795 & 4.62 & \(\beta_{\text{GPD}}=0.621,\ \xi=0.206\) \\
 \end{frame}
 
 \begin{frame}{Asymmetric t Backtesting (VaR)}
-\scriptsize
 \begin{table}
 \centering
 \begin{tabular}{llcc}
@@ -376,7 +406,7 @@ Test & p-value type & GARCH-Asyt & GJR-Asyt \\
 \bottomrule
 \end{tabular}
 \end{table}
-\begin{itemize}
+\begin{itemize} \setlength{\itemsep}{1em}
 \item VaR performance is weak: coverage and independence issues.
 \item Simulated \(LR_{\text{uc}}\) and \(LR_{\text{cc}}\) p-values are low for both models.
 \item Breaches cluster around volatility jumps, violating independence.
@@ -404,20 +434,6 @@ Test & p-value type & GARCH-Asyt & GJR-Asyt \\
 \end{itemize}
 \end{frame}
 
-\begin{frame}{EVT-Based Tail Forecasting}
-\small
-\[
-\text{VaR}_{z,t+1}^{p}=u-\frac{\beta}{\xi}\left\{1-\left[\frac{T}{N_u}(1-q)\right]^{-\xi}\right\},\quad
-\text{VaR}_{t+1}^{p}=-\sigma_{t+1}\text{VaR}_{z,t+1}^{p}
-\]
-\[
-\text{ES}_{t+1}^{p}=-\sigma_{t+1}\text{ES}_{z,t+1}^{p}
-\]
-\begin{itemize}
-\item EVT focuses directly on the left tail, giving more conservative risk forecasts.
-\end{itemize}
-\end{frame}
-
 \begin{frame}{EVT Forecasts in the Test Period}
 \begin{columns}[T]
 \column{0.49\textwidth}
@@ -428,12 +444,12 @@ Test & p-value type & GARCH-Asyt & GJR-Asyt \\
 \includegraphics[width=0.95\linewidth]{4.12.png}
 \end{columns}
 \begin{itemize}
+\item EVT focuses directly on the left tail, giving more conservative risk forecasts.
 \item EVT variants show fewer breaches than Asyt counterparts.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{EVT Backtesting Summary}
-\small
 \begin{table}
 \centering
 \begin{tabular}{llcc}
@@ -446,7 +462,7 @@ Test & p-value type & GARCH-EVT & GJR-EVT \\
 \bottomrule
 \end{tabular}
 \end{table}
-\begin{itemize}
+\begin{itemize} \setlength{\itemsep}{1em}
 \item Coverage improves, but independence of violations remains problematic.
 \item Main weakness: slow adaptation to abrupt volatility regime changes.
 \item Stress-testing (2008 episode) supports stronger breach control for EVT variants.
@@ -471,7 +487,6 @@ Test & p-value type & GARCH-EVT & GJR-EVT \\
 \end{frame}
 
 \begin{frame}{t-Copula Specification and Estimation}
-\small
 \[
 G(u_1,u_2;\rho^*,d)=t_{(d,\rho^*)}\!\left(t^{-1}(u_1;d),t^{-1}(u_2;d)\right)
 \]
@@ -486,7 +501,7 @@ GJR-GJR & -0.2088 & 4.8304 \\
 \bottomrule
 \end{tabular}
 \end{table}
-\begin{itemize}
+\begin{itemize} \setlength{\itemsep}{1em}
 \item Static t-copula chosen for tractability and tail-thickness flexibility.
 \item Marginals estimated first (GARCH-Asyt / GJR-Asyt), then copula parameters.
 \end{itemize}
@@ -514,7 +529,6 @@ GJR-GJR & -0.2088 & 4.8304 \\
 \end{frame}
 
 \begin{frame}{Monte Carlo Forecasting Pipeline}
-\small
 \begin{center}
 \begin{tikzpicture}[
   node distance=0.9cm and 0.7cm,
@@ -532,14 +546,13 @@ GJR-GJR & -0.2088 & 4.8304 \\
 \draw[arrow] (z) -- (rp);
 \end{tikzpicture}
 \end{center}
-\begin{itemize}
+\begin{itemize} \setlength{\itemsep}{1em}
 \item Repeat \(M\) times to form portfolio-return density.
 \item Compute VaR/ES from simulated quantiles and tail means.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Copula Portfolio Results}
-\small
 \begin{columns}[T]
 \column{0.49\textwidth}
 \centering
@@ -555,7 +568,6 @@ GJR-GJR & -0.2088 & 4.8304 \\
 \end{frame}
 
 \begin{frame}{Copula Backtesting and Density Validation}
-\small
 \begin{table}
 \centering
 \begin{tabular}{llcc}
@@ -568,7 +580,7 @@ Test & p-value type & GARCH-GARCH & GJR-GJR \\
 \bottomrule
 \end{tabular}
 \end{table}
-\begin{itemize}
+\begin{itemize} \setlength{\itemsep}{1em}
 \item KS on normal transform: \(p=0.5271\) (GARCH-GARCH), \(p=0.4872\) (GJR-GJR).
 \item Density forecasts are statistically acceptable despite VaR clustering issues.
 \end{itemize}
@@ -576,7 +588,7 @@ Test & p-value type & GARCH-GARCH & GJR-GJR \\
 
 \section{Conclusion}
 \begin{frame}{Main Conclusions}
-\begin{itemize}
+\begin{itemize}\setlength{\itemsep}{1em}
 \item The thesis delivers a coherent end-to-end framework from univariate to multivariate risk modeling.
 \item Volatility modeling: GJR improves in-sample volatility fit (QLIKE, LR evidence).
 \item Shock modeling:
@@ -590,7 +602,7 @@ Test & p-value type & GARCH-GARCH & GJR-GJR \\
 \end{frame}
 
 \begin{frame}{Limitations and Next Steps}
-\begin{itemize}
+\begin{itemize}\setlength{\itemsep}{1em}
 \item Static dependence and symmetric copula limit adaptation and asymmetry capture.
 \item EVT tails improve coverage but still react slowly to abrupt regime shifts.
 \item Promising extensions:
@@ -617,7 +629,7 @@ Test & p-value type & GARCH-GARCH & GJR-GJR \\
 
 \vspace{0.5em}
 
-\large \githubicon\ \href{https://github.com/ferpmillan/tesis-tex}{github.com/ferpmillan/tesis-tex}
+\large \githubicon\ \href{https://github.com/ferpmillan/thesis-tex}{github.com/ferpmillan/tesis-tex}
 \end{frame}
 
 \end{document}

@@ -1,8 +1,8 @@
 \babel@toc {english}{}\relax 
 \beamer@sectionintoc {1}{Objective and Data}{3}{0}{1}
 \beamer@sectionintoc {2}{Empirical Characteristics of Returns}{5}{0}{2}
-\beamer@sectionintoc {3}{Volatility Modeling}{8}{0}{3}
-\beamer@sectionintoc {4}{Shock Modeling}{11}{0}{4}
-\beamer@sectionintoc {5}{Forecasting and Evaluation}{17}{0}{5}
-\beamer@sectionintoc {6}{Copula Multivariate Model}{26}{0}{6}
-\beamer@sectionintoc {7}{Conclusion}{32}{0}{7}
+\beamer@sectionintoc {3}{Volatility Modeling}{9}{0}{3}
+\beamer@sectionintoc {4}{Shock Modeling}{13}{0}{4}
+\beamer@sectionintoc {5}{Forecasting and Evaluation}{19}{0}{5}
+\beamer@sectionintoc {6}{Copula Multivariate Model}{27}{0}{6}
+\beamer@sectionintoc {7}{Conclusion}{33}{0}{7}

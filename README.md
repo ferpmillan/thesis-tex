@@ -6,18 +6,20 @@ This thesis develops a comprehensive, sequential framework for modeling financia
 This repository contains:
 
 - The full thesis manuscript (book-style LaTeX)
+- An executive-summary edition that prepends a summary to the unmodified thesis
 - The defense presentation (Beamer)
 - Shared bibliography and figures
 
 ## Repository layout
 
 - `thesis/main/main.tex`: thesis entry point
-- `thesis/chapters/`: thesis chapter files (`intro.tex`, `cap1.tex`, ..., `conc.tex`)
+- `thesis/chapters/`: thesis chapter files (`intro.tex`, `cap1.tex`, ..., `conc.tex`) — shared, unmodified, by both the thesis and the executive-summary edition
+- `executive_summary/main/main.tex`: executive-summary edition entry point (executive summary + the full thesis, `\input`-ing the same chapter files as `thesis/main/main.tex`)
 - `slides/defense.tex`: slide deck entry point
 - `slides/README.md`: slides-specific notes
 - `biblo.bib`: bibliography database
-- `plots/`: figures used by thesis and slides
-- `Makefile`: build automation for thesis + slides
+- `plots/`: figures used by thesis, executive summary, and slides
+- `Makefile`: build automation for thesis + executive summary + slides
 
 ## Requirements
 
@@ -39,6 +41,12 @@ Build only thesis:
 make thesis
 ```
 
+Build only the executive-summary edition:
+
+```bash
+make executive-summary
+```
+
 Build only slides:
 
 ```bash
@@ -54,4 +62,5 @@ make clean
 ## Output locations
 
 - Thesis PDF: `thesis/main/main.pdf`
+- Executive-summary edition PDF: `executive_summary/main/main.pdf`
 - Slides PDF: `slides/defense.pdf`

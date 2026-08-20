@@ -1,0 +1,273 @@
+\documentclass[11pt, oneside]{book}
+\usepackage[paperwidth=17cm, paperheight=22.5cm, bottom=2.5cm, right=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amssymb,amsmath,amsthm,amsfonts,mathtools}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+\usepackage{chngcntr}
+\counterwithin{figure}{chapter}
+\usepackage{tcolorbox}
+\usepackage{microtype}
+\usepackage{listings}
+\lstdefinestyle{Rstyle}{
+  language=R,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{black},
+  commentstyle=\color{miAzul},
+  stringstyle=\color{miVerde},
+  backgroundcolor=\color{gray!5},
+  frame=lines,
+  rulecolor=\color{black},
+  breaklines=true,
+  captionpos=b,
+  showstringspaces=false
+}
+
+% Para eliminar guiones y justificar texto
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+\linespread{1.25} % Asemeja el interlineado 1.5 de Word
+
+\let\oldfootnote\footnote % Deja espacio entre el número del pie de página y el inicio del texto
+\renewcommand\footnote[1]{%
+\oldfootnote{\hspace{0.05mm}#1}}
+
+\renewcommand{\thefootnote} {\textcolor{miVerde}{\arabic{footnote}}} % Súperindice a color negro
+
+\setlength{\footnotesep}{0.75\baselineskip}
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0pt}
+
+% ---- LINKS ----
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=miRojo, citecolor=miAzul, linkcolor=miVerde}
+
+% ---- IMÁGENES ----
+\usepackage{graphicx}
+\graphicspath{{../../plots/}{../../imgs/}{plots/}{imgs/}}
+\newcommand{\thesislogopath}{../../logo-ITAM.png}
+\IfFileExists{../../logo-ITAM.png}{}{\renewcommand{\thesislogopath}{logo-ITAM.png}}
+\newcommand{\thesisbib}{../../biblo}
+\IfFileExists{../../biblo.bib}{}{\renewcommand{\thesisbib}{biblo}}
+\newcommand{\rlogopath}{../../plots/Rlogo.png}
+\IfFileExists{../../plots/Rlogo.png}{}{\renewcommand{\rlogopath}{plots/Rlogo.png}}
+
+% ---- FORMATO DE TÍTULOS ----
+\usepackage{titlesec}
+\titlespacing{\section}{0pt}{1em plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing{\subsection}{0pt}{1em plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing{\subsubsection}{0pt}{1em plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+% ---- FORMATO DE LISTAS ----
+\usepackage{enumitem}
+\setlist[itemize]{topsep=-0.5em} % es media m para compensar
+\setlist[enumerate]{topsep=-0.5em}
+
+
+
+% ---- COLORES ----
+\usepackage{xcolor}
+\definecolor{miAzul}{RGB}{13, 33, 161}
+\definecolor{miRojo}{RGB}{186, 24, 27}
+\definecolor{miVerde}{RGB}{65, 123, 90}
+\definecolor{LightGray}{gray}{0.95}
+\definecolor{codegray}{gray}{0.9}
+
+% ---- BIBLIOGRAFÍA ----
+\usepackage{apacite}
+\bibliographystyle{apacite}
+\usepackage{etoolbox}
+\apptocmd{\thebibliography}{\setlength{\itemsep}{6pt}\interlinepenalty=10000}{}{}
+
+% ---- FORMATO DE LAS PÁGINAS ----
+%\usepackage[a4paper, width=165mm, top=20mm, bottom = 20mm]{geometry}
+
+\setlength{\headheight}{15pt}
+
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0cm}
+
+
+% ---- CAJAS DE COLORES ----
+\usepackage{tcolorbox}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{caption}
+\captionsetup{justification=centerlast, singlelinecheck=true}
+
+\title{
+    Thesis \\
+    \large \textbf{Draft}
+}
+\author{
+Fernando Pérez Millán, 189380}
+\date{-}
+
+\newcommand\TEI{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily TEI}}}{=}}}
+\newcommand\IND{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily ind}}}{=}}}
+\DeclareMathOperator{\var}{var}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\vas}{v.a.}
+\DeclareMathOperator{\ee}{ee}
+\DeclareMathOperator{\I}{I}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\R}{\mathbb{R}}
+
+\numberwithin{equation}{chapter}
+\numberwithin{table}{chapter}
+
+\newcommand{\Rlogo}{\protect\includegraphics[height=1.8ex,keepaspectratio]{\rlogopath}}
+
+% --- Páginas a la derecha (impresión a doble cara) ---
+% Contamos las páginas FÍSICAS realmente impresas (inmune a los reinicios
+% de numeración de \frontmatter y \mainmatter) y redefinimos
+% \cleardoublepage para que el contenido siguiente caiga siempre en una
+% página derecha (recto), insertando una página en blanco sólo si hace
+% falta. Como \chapter, \frontmatter, \tableofcontents y \mainmatter
+% llaman a \cleardoublepage, cada sección y capítulo arranca a la derecha.
+\usepackage{atbegshi}
+\newcounter{physpage}
+\AtBeginShipout{\stepcounter{physpage}}
+\renewcommand{\cleardoublepage}{%
+  \clearpage
+  \ifodd\value{physpage}%
+    \thispagestyle{empty}\mbox{}\clearpage
+  \fi
+}
+
+\begin{document}
+
+\pagestyle{plain}
+\frontmatter
+
+%----------------------------------------------------------------------------------------
+%	EXECUTIVE SUMMARY
+%----------------------------------------------------------------------------------------
+\chapter*{Executive Summary}
+
+{\small\textit{This document opens with an executive summary of the thesis. The complete manuscript that follows—starting from the cover page—is reproduced in full and without modification.}}
+
+\section*{Objective}
+
+The objective of this thesis is to build, explain, and validate a complete framework for modeling daily financial returns—one a reader can follow from raw price data all the way to portfolio-level risk measures. Rather than surveying the literature exhaustively, the thesis commits to a single coherent path, chosen for its clarity and its wide adoption in practice, so that every modeling decision motivates the next. The aim is twofold: first, to provide a concise but rigorous "recipe" for return modeling at the undergraduate level; second, to evaluate—honestly and quantitatively—how well the resulting models perform once confronted with real market data, both statistically and from a risk-management perspective.
+
+\section*{Background}
+
+Financial returns share a set of empirical regularities that any credible model must reproduce. These are documented in Chapter 1 using eleven years (2014--2024) of daily S\&P 500 returns: returns are close to serially uncorrelated, yet their volatility is highly persistent, producing the volatility clusters seen in financial markets; the unconditional distribution of returns is more peaked around zero and far heavier-tailed than the normal distribution, and for equity indices it is typically left-skewed, as illustrated below; volatility reacts more strongly to negative shocks than to positive ones of the same size (the leverage effect); and correlations across assets are not static, tending to spike during stressed markets. \citeA{Christoffersen2012} calls these the stylized facts of returns, and Chapters 2 through 5 of the thesis are organized precisely around capturing each of them in turn.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.14]{1.2.png}
+    \caption*{Histogram of daily S\&P 500 log returns against a fitted normal density (Jan.\ 2014--Dec.\ 2024): the empirical distribution is more peaked, heavier-tailed, and left-skewed than the normal (skewness $-0.81$, kurtosis $19.04$).}
+\end{figure}
+
+\section*{Methodology}
+
+The thesis follows the modeling pipeline summarized below. Conditional volatility, $\sigma_{t+1}^2$, is modeled first, using the GARCH(1,1) model of \citeA{Bollerslev1986} and its asymmetric extension, GJR-GARCH(1,1) \cite{Glosten1993}, both estimated by quasi-maximum likelihood on the 2014--2024 S\&P 500 sample. Next, the standardized shock $z_{t+1}=R_{t+1}/\sigma_{t+1}$ is modeled in two different ways: with the asymmetric Student's $t$-distribution of \citeA{Hansen1994}, which targets the entire density, and with a peak-over-threshold extreme value theory (EVT) approach \cite{mcneil2000estimation}, which targets only the left tail via the generalized Pareto distribution implied by the Pickands--Balkema--de Haan theorem. Combining each volatility specification with each shock distribution yields four complete univariate models, used to forecast the one-day-ahead return density, Value-at-Risk (VaR), and Expected Shortfall (ES) over a January--April 2025 out-of-sample window. These forecasts are then evaluated within a framework that seeks to assess both their statistical validity and their performance for risk management—combining coverage and independence tests \citeA{christoffersen1998evaluating}, PIT-based calibration diagnostics \citeA{diebold1998evaluating}, and forecast-comparison tests such as Diebold--Mariano \cite{diebold1995comparing}. Finally, Chapter 5 extends the framework to two assets—the S\&P 500 and a 10-year U.S.\ Treasury note index—using a static $t$-copula \cite{jondeau2006copulagarch} to link the two univariate models into a joint density, from which portfolio VaR and ES are obtained by Monte Carlo simulation.
+
+\begin{figure}[H]
+\centering
+\resizebox{0.98\linewidth}{!}{%
+\begin{tikzpicture}[
+  node distance=6mm and 4mm,
+  box/.style={draw=miAzul, thick, rounded corners, fill=miAzul!5, align=center,
+              text width=2.1cm, minimum height=1.6cm, font=\footnotesize},
+  arrow/.style={-{Latex}, thick, miAzul}
+]
+\node[box] (stylized) {Stylized\\facts\\[2pt] \textit{Ch.~1}};
+\node[box, right=of stylized] (vol) {Volatility\\GARCH /\\GJR-GARCH\\[2pt] \textit{Ch.~2}};
+\node[box, right=of vol] (shock) {Shocks\\Asym.~$t$ /\\EVT-POT\\[2pt] \textit{Ch.~3}};
+\node[box, right=of shock] (eval) {Forecast\\\& backtest\\VaR, ES\\[2pt] \textit{Ch.~4}};
+\node[box, right=of eval] (copula) {Multivariate\\$t$-copula\\[2pt] \textit{Ch.~5}};
+
+\draw[arrow] (stylized) -- (vol);
+\draw[arrow] (vol) -- (shock);
+\draw[arrow] (shock) -- (eval);
+\draw[arrow] (eval) -- (copula);
+\end{tikzpicture}}
+\caption*{Modeling pipeline followed throughout the thesis: each stage supplies the inputs required by the next.}
+\end{figure}
+
+\section*{Key Results}
+
+Diagnostic checks confirm that the volatility models do their job: after standardizing by the fitted $\sigma_{t+1}^2$, the autocorrelation in squared returns documented in Chapter 1 disappears (Ljung--Box $p$-values of 0.65 and 0.35 for GARCH(1,1) and GJR-GARCH(1,1), respectively), and a likelihood-ratio test confirms that the leverage parameter in GJR-GARCH is statistically significant ($p<0.01$). Goodness-of-fit diagnostics—QQ-plots and empirical-versus-theoretical CDFs—show that the asymmetric $t$-distribution captures the bulk of the standardized-return distribution far better than the normal, while the EVT approach provides a closer fit specifically in the left tail.
+\newpage
+The risk-management evaluation is where the models' limits become visible. Over the 81-day test window (about 2 breaches expected at the 2.5\% level), the asymmetric-$t$ models produced 5--6 VaR breaches and failed formal coverage tests, whereas the more conservative EVT-based models produced 3--4 breaches and achieved acceptable unconditional coverage. Yet every specification failed the independence test: violations clustered around the sharp volatility spike triggered by the announcement of U.S.\ tariffs in early April 2025, as illustrated below for the GARCH-EVT model, showing that the models—however well calibrated on average—adapt too slowly to abrupt regime changes.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.17]{4.11.png}
+    \caption*{2.5\% VaR, Expected Shortfall, and observed VaR breaches in the Jan.--Apr.\ 2025 test period, GARCH-EVT model (4 breaches observed against 2 expected).}
+\end{figure}
+
+\newpage
+A subsequent stress test on the 2008 financial crisis confirms the same pattern at a larger scale: every model exceeds its expected breach count, and the gap widens sharply once the crisis intensifies in September--December, as summarized below.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lccc}
+\toprule
+\textbf{Model} & \textbf{Jan--Aug} & \textbf{Sep--Dec} & \textbf{Total} \\
+\midrule
+GARCH-Asyt & 9 & 7 & 16 \\
+GJR-Asyt   & 8 & 5 & 13 \\
+GARCH-EVT  & 4 & 5 & 9  \\
+GJR-EVT    & 7 & 5 & 12 \\
+\midrule
+Expected   & 4.17 & 2.10 & 6.28 \\
+\bottomrule
+\end{tabular}
+\caption*{Number of 2.5\% VaR breaches by period and model during the 2008 stress test (167 trading days in Jan.--Aug., 84 in Sep.--Dec.). GARCH-EVT remains the most contained of the four specifications.}
+\end{table}
+
+Extending to two assets, the static $t$-copula reproduces the empirical rise in threshold correlations between S\&P 500 and Treasury returns as both series move further into their tails—direct evidence of the nonlinear tail dependence a linear correlation model would miss, as illustrated below—and the resulting portfolio density forecasts pass PIT and Kolmogorov--Smirnov calibration tests. As with the univariate models, however, portfolio VaR breaches remain clustered around the same 2025 volatility shock, and the model's static, symmetric design cannot capture the mild asymmetry observed between the left- and right-tail dependence.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.43]{5.2.png}
+    \caption*{Threshold correlation between GARCH(1,1)-standardized S\&P 500 and 10-year Treasury note returns: correlations rise as both series move deeper into their tails, evidencing heavy-tailed, asymmetric dependence.}
+\end{figure}
+
+\section*{Conclusions}
+
+Taken together, the results support a two-part conclusion. On one hand, the modeling pipeline developed here is statistically sound: volatility dynamics are well captured, shock distributions are well fitted in-sample, and density forecasts—both univariate and, via the copula, at the portfolio level—pass calibration diagnostics out-of-sample. On the other hand, every specification considered shares the same practical weakness: none adapts quickly enough to sudden volatility regime shifts, producing clustered VaR violations exactly when accurate risk measurement matters most. The EVT-based tail models mitigate, but do not eliminate, this shortcoming.
+
+These findings should be read against the study's deliberately narrow scope: a bivariate portfolio, a four-month out-of-sample window, parameters fit once on the 2014--2024 sample rather than re-estimated on a rolling basis, and GARCH specifications with fixed lag order and time-invariant tail and copula parameters. Within these bounds, the thesis's central contribution is a complete, reproducible, and empirically grounded "recipe" for return modeling—implemented end to end in \Rlogo\ and openly available at \href{https://github.com/ferpmillan/thesis}{github.com/ferpmillan/thesis}—together with a clear diagnosis of where the standard toolkit falls short. That diagnosis points directly to future work: shock models that let skewness and kurtosis respond dynamically to volatility, and dynamic or asymmetric copula specifications for the multivariate layer.
+
+
+% Pueden modificar el tamaño del logo cambiando la escala
+\newpage
+\begin{titlepage}
+\begin{center}
+\textbf{\LARGE MODELADO DE RENDIMIENTOS FINANCIEROS: VOLATILIDAD CONDICIONAL, COLAS PESADAS Y DEPENDENCIA MULTIVARIADA}\\[2em]
+\end{center}
+\end{titlepage}
+\newpage
+
+\tableofcontents
+\mainmatter
+\input{../../thesis/chapters/intro}
+\newpage
+\input{../../thesis/chapters/cap1}
+\newpage
+\input{../../thesis/chapters/cap2}
+\newpage
+\input{../../thesis/chapters/cap3}
+\newpage
+\input{../../thesis/chapters/cap4}
+\newpage
+\input{../../thesis/chapters/cap5}
+\newpage
+\input{../../thesis/chapters/conc}
+\cleardoublepage
+\backmatter
+\bibliography{\thesisbib}
+\end{document}

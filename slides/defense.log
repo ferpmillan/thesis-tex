@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.28)  14 JUN 2026 22:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.28)  19 JUL 2026 00:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1012,16 +1012,16 @@ Package pdftex.def Info: ../logo-ITAM.png  used on input line 414.
 <../plots//4.7.png, id=305, 1484.54625pt x 1089.06876pt>
 File: ../plots//4.7.png Graphic file (type png)
 <use ../plots//4.7.png>
-Package pdftex.def Info: ../plots//4.7.png  used on input line 435.
+Package pdftex.def Info: ../plots//4.7.png  used on input line 434.
 (pdftex.def)             Requested size: 201.72324pt x 147.98177pt.
 <../plots//4.8.png, id=306, 1484.54625pt x 1089.06876pt>
 File: ../plots//4.8.png Graphic file (type png)
 <use ../plots//4.8.png>
-Package pdftex.def Info: ../plots//4.8.png  used on input line 435.
+Package pdftex.def Info: ../plots//4.8.png  used on input line 434.
 (pdftex.def)             Requested size: 201.72324pt x 147.98177pt.
 File: ../logo-ITAM.png Graphic file (type png)
 <use ../logo-ITAM.png>
-Package pdftex.def Info: ../logo-ITAM.png  used on input line 435.
+Package pdftex.def Info: ../logo-ITAM.png  used on input line 434.
 (pdftex.def)             Requested size: 54.19556pt x 20.48601pt.
  [24
 
@@ -1029,23 +1029,23 @@ Package pdftex.def Info: ../logo-ITAM.png  used on input line 435.
 <../plots//4.11.png, id=316, 1502.61375pt x 1087.06125pt>
 File: ../plots//4.11.png Graphic file (type png)
 <use ../plots//4.11.png>
-Package pdftex.def Info: ../plots//4.11.png  used on input line 450.
+Package pdftex.def Info: ../plots//4.11.png  used on input line 449.
 (pdftex.def)             Requested size: 201.72324pt x 145.93416pt.
 <../plots//4.12.png, id=317, 1502.61375pt x 1087.06125pt>
 File: ../plots//4.12.png Graphic file (type png)
 <use ../plots//4.12.png>
-Package pdftex.def Info: ../plots//4.12.png  used on input line 450.
+Package pdftex.def Info: ../plots//4.12.png  used on input line 449.
 (pdftex.def)             Requested size: 201.72324pt x 145.93416pt.
 File: ../logo-ITAM.png Graphic file (type png)
 <use ../logo-ITAM.png>
-Package pdftex.def Info: ../logo-ITAM.png  used on input line 450.
+Package pdftex.def Info: ../logo-ITAM.png  used on input line 449.
 (pdftex.def)             Requested size: 54.19556pt x 20.48601pt.
  [25
 
  <../plots//4.11.png> <../plots//4.12.png>]
 File: ../logo-ITAM.png Graphic file (type png)
 <use ../logo-ITAM.png>
-Package pdftex.def Info: ../logo-ITAM.png  used on input line 470.
+Package pdftex.def Info: ../logo-ITAM.png  used on input line 469.
 (pdftex.def)             Requested size: 54.19556pt x 20.48601pt.
  [26
 
@@ -1053,23 +1053,23 @@ Package pdftex.def Info: ../logo-ITAM.png  used on input line 470.
 <../plots//5.1.png, id=333, 1502.61375pt x 1085.05376pt>
 File: ../plots//5.1.png Graphic file (type png)
 <use ../plots//5.1.png>
-Package pdftex.def Info: ../plots//5.1.png  used on input line 487.
+Package pdftex.def Info: ../plots//5.1.png  used on input line 486.
 (pdftex.def)             Requested size: 212.34094pt x 153.33035pt.
 <../plots//5.2.png, id=334, 722.7pt x 433.62pt>
 File: ../plots//5.2.png Graphic file (type png)
 <use ../plots//5.2.png>
-Package pdftex.def Info: ../plots//5.2.png  used on input line 487.
+Package pdftex.def Info: ../plots//5.2.png  used on input line 486.
 (pdftex.def)             Requested size: 212.34094pt x 127.4007pt.
 File: ../logo-ITAM.png Graphic file (type png)
 <use ../logo-ITAM.png>
-Package pdftex.def Info: ../logo-ITAM.png  used on input line 487.
+Package pdftex.def Info: ../logo-ITAM.png  used on input line 486.
 (pdftex.def)             Requested size: 54.19556pt x 20.48601pt.
  [27
 
  <../plots//5.1.png> <../plots//5.2.png>]
 File: ../logo-ITAM.png Graphic file (type png)
 <use ../logo-ITAM.png>
-Package pdftex.def Info: ../logo-ITAM.png  used on input line 508.
+Package pdftex.def Info: ../logo-ITAM.png  used on input line 507.
 (pdftex.def)             Requested size: 54.19556pt x 20.48601pt.
  [28
 
@@ -1077,23 +1077,23 @@ Package pdftex.def Info: ../logo-ITAM.png  used on input line 508.
 <../plots//5.3.png, id=349, 722.7pt x 433.62pt>
 File: ../plots//5.3.png Graphic file (type png)
 <use ../plots//5.3.png>
-Package pdftex.def Info: ../plots//5.3.png  used on input line 529.
+Package pdftex.def Info: ../plots//5.3.png  used on input line 528.
 (pdftex.def)             Requested size: 201.72324pt x 121.03563pt.
 <../plots//5.4.png, id=350, 722.7pt x 433.62pt>
 File: ../plots//5.4.png Graphic file (type png)
 <use ../plots//5.4.png>
-Package pdftex.def Info: ../plots//5.4.png  used on input line 529.
+Package pdftex.def Info: ../plots//5.4.png  used on input line 528.
 (pdftex.def)             Requested size: 201.72324pt x 121.03563pt.
 File: ../logo-ITAM.png Graphic file (type png)
 <use ../logo-ITAM.png>
-Package pdftex.def Info: ../logo-ITAM.png  used on input line 529.
+Package pdftex.def Info: ../logo-ITAM.png  used on input line 528.
 (pdftex.def)             Requested size: 54.19556pt x 20.48601pt.
  [29
 
  <../plots//5.3.png> <../plots//5.4.png>]
 File: ../logo-ITAM.png Graphic file (type png)
 <use ../logo-ITAM.png>
-Package pdftex.def Info: ../logo-ITAM.png  used on input line 553.
+Package pdftex.def Info: ../logo-ITAM.png  used on input line 552.
 (pdftex.def)             Requested size: 54.19556pt x 20.48601pt.
  [30
 
@@ -1101,51 +1101,51 @@ Package pdftex.def Info: ../logo-ITAM.png  used on input line 553.
 <../plots//5.6.png, id=368, 1502.61375pt x 1085.05376pt>
 File: ../plots//5.6.png Graphic file (type png)
 <use ../plots//5.6.png>
-Package pdftex.def Info: ../plots//5.6.png  used on input line 568.
+Package pdftex.def Info: ../plots//5.6.png  used on input line 567.
 (pdftex.def)             Requested size: 201.72324pt x 145.66466pt.
 <../plots//5.7.png, id=369, 1502.61375pt x 1085.05376pt>
 File: ../plots//5.7.png Graphic file (type png)
 <use ../plots//5.7.png>
-Package pdftex.def Info: ../plots//5.7.png  used on input line 568.
+Package pdftex.def Info: ../plots//5.7.png  used on input line 567.
 (pdftex.def)             Requested size: 201.72324pt x 145.66466pt.
 File: ../logo-ITAM.png Graphic file (type png)
 <use ../logo-ITAM.png>
-Package pdftex.def Info: ../logo-ITAM.png  used on input line 568.
+Package pdftex.def Info: ../logo-ITAM.png  used on input line 567.
 (pdftex.def)             Requested size: 54.19556pt x 20.48601pt.
  [31
 
  <../plots//5.6.png> <../plots//5.7.png>]
 File: ../logo-ITAM.png Graphic file (type png)
 <use ../logo-ITAM.png>
-Package pdftex.def Info: ../logo-ITAM.png  used on input line 587.
+Package pdftex.def Info: ../logo-ITAM.png  used on input line 586.
 (pdftex.def)             Requested size: 54.19556pt x 20.48601pt.
  [32
 
 ]
 File: ../logo-ITAM.png Graphic file (type png)
 <use ../logo-ITAM.png>
-Package pdftex.def Info: ../logo-ITAM.png  used on input line 602.
+Package pdftex.def Info: ../logo-ITAM.png  used on input line 601.
 (pdftex.def)             Requested size: 54.19556pt x 20.48601pt.
  [33
 
 ]
 File: ../logo-ITAM.png Graphic file (type png)
 <use ../logo-ITAM.png>
-Package pdftex.def Info: ../logo-ITAM.png  used on input line 615.
+Package pdftex.def Info: ../logo-ITAM.png  used on input line 614.
 (pdftex.def)             Requested size: 54.19556pt x 20.48601pt.
  [34
 
 ] (./defense.bbl)
 File: ../logo-ITAM.png Graphic file (type png)
 <use ../logo-ITAM.png>
-Package pdftex.def Info: ../logo-ITAM.png  used on input line 621.
+Package pdftex.def Info: ../logo-ITAM.png  used on input line 620.
 (pdftex.def)             Requested size: 54.19556pt x 20.48601pt.
  [35
 
 ]
 File: ../logo-ITAM.png Graphic file (type png)
 <use ../logo-ITAM.png>
-Package pdftex.def Info: ../logo-ITAM.png  used on input line 621.
+Package pdftex.def Info: ../logo-ITAM.png  used on input line 620.
 (pdftex.def)             Requested size: 54.19556pt x 20.48601pt.
  [36
 
@@ -1153,7 +1153,7 @@ Package pdftex.def Info: ../logo-ITAM.png  used on input line 621.
 ]
 File: ../logo-ITAM.png Graphic file (type png)
 <use ../logo-ITAM.png>
-Package pdftex.def Info: ../logo-ITAM.png  used on input line 621.
+Package pdftex.def Info: ../logo-ITAM.png  used on input line 620.
 (pdftex.def)             Requested size: 54.19556pt x 20.48601pt.
  [37
 
@@ -1161,7 +1161,7 @@ Package pdftex.def Info: ../logo-ITAM.png  used on input line 621.
 ]
 File: ../logo-ITAM.png Graphic file (type png)
 <use ../logo-ITAM.png>
-Package pdftex.def Info: ../logo-ITAM.png  used on input line 621.
+Package pdftex.def Info: ../logo-ITAM.png  used on input line 620.
 (pdftex.def)             Requested size: 54.19556pt x 20.48601pt.
  [38
 
@@ -1169,19 +1169,19 @@ Package pdftex.def Info: ../logo-ITAM.png  used on input line 621.
 ]
 File: ../logo-ITAM.png Graphic file (type png)
 <use ../logo-ITAM.png>
-Package pdftex.def Info: ../logo-ITAM.png  used on input line 621.
+Package pdftex.def Info: ../logo-ITAM.png  used on input line 620.
 (pdftex.def)             Requested size: 54.19556pt x 20.48601pt.
  [39
 
 
 ]
-LaTeX Font Info:    Trying to load font information for U+fontawesomebrands0 on input line 633.
+LaTeX Font Info:    Trying to load font information for U+fontawesomebrands0 on input line 632.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/fontawesome5/ufontawesomebrands0.fd)
 LaTeX Font Info:    Font shape `U/fontawesomebrands0/solid/n' in size <12> not available
-(Font)              Font shape `U/fontawesomebrands0/regular/n' tried instead on input line 633.
+(Font)              Font shape `U/fontawesomebrands0/regular/n' tried instead on input line 632.
 File: ../logo-ITAM.png Graphic file (type png)
 <use ../logo-ITAM.png>
-Package pdftex.def Info: ../logo-ITAM.png  used on input line 633.
+Package pdftex.def Info: ../logo-ITAM.png  used on input line 632.
 (pdftex.def)             Requested size: 54.19556pt x 20.48601pt.
  [40
 
@@ -1208,7 +1208,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  128i,16n,122p,436b,813s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/fontawesome5/FontAwesome5Brands-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on defense.pdf (40 pages, 2493193 bytes).
+Output written on defense.pdf (40 pages, 2493075 bytes).
 PDF statistics:
  607 PDF objects out of 1000 (max. 8388607)
  421 compressed objects within 5 object streams
